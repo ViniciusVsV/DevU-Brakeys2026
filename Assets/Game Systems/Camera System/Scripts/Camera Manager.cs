@@ -22,7 +22,6 @@ namespace CameraSystem
                 Destroy(gameObject);
 
             cinemachineBrain = mainCamera.GetComponent<CinemachineBrain>();
-            cinemachineBrain.DefaultBlend.Time = cameraData.transitionDuration;
         }
 
         public void SetBlendTime(float time) { cinemachineBrain.DefaultBlend.Time = time; }

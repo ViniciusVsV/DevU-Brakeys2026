@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e15a46f781a8fc34792dcb8692f0a968, type: 3}
-  m_Name: ScreenData
-  m_EditorClassIdentifier: Assembly-CSharp::ScreenSystem.ScreenData
+  m_Name: SectionData
+  m_EditorClassIdentifier: Assembly-CSharp::SectionSystem.SectionData
   transitionDuration: 0.5
+  maxWaitLength: 5

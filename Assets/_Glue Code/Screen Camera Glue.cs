@@ -12,11 +12,11 @@ public class ScreenCameraGlue : MonoBehaviour
 
     private void OnEnable()
     {
-        ScreenSystem.ScreenManager.OnTransitionDurationChange += ChangeTransitionDuration;
+        SectionSystem.SectionUI.OnTransitionDurationChange += ChangeTransitionDuration;
     }
     private void OnDisable()
     {
-        ScreenSystem.ScreenManager.OnTransitionDurationChange -= ChangeTransitionDuration;
+        SectionSystem.SectionUI.OnTransitionDurationChange -= ChangeTransitionDuration;
     }
 
     private void ChangeTransitionDuration(float newDuration)
