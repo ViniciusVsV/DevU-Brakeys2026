@@ -336,7 +336,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 70
-  orthographic: 0
+  orthographic: 1
   orthographic size: 6.592726
   m_Depth: 1
   m_CullingMask:
@@ -428,8 +428,8 @@ MonoBehaviour:
     Enabled: 0
     DefaultMode: 2
   DefaultBlend:
-    Style: 1
-    Time: 2
+    Style: 6
+    Time: 0
     CustomCurve:
       serializedVersion: 2
       m_Curve: []
