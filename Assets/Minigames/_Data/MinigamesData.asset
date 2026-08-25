@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5310a277e75ba9a419cd0455684b6f6d, type: 3}
+  m_Name: MinigamesData
+  m_EditorClassIdentifier: Assembly-CSharp::Minigames.MinigamesData
+  passportShowDuration: 1
+  passportShowEase: 18
+  passportHideDuration: 0.3
+  passportHideEase: 18
+  maxPassportRotation: 30
+  minPassportMovement: 1
+  maxPassportMovement: 2
+  maxPassportSizeMultiplier: 1.268
