@@ -17,6 +17,7 @@ namespace TransitionSystem
             transitionData.transitionShaderMaterial
                 .DOFloat(-1f, "_Progress", transitionData.exitDuration)
                 .SetEase(transitionData.exitEase)
+                .SetUpdate(true)
                 .OnComplete(() =>
                     {
                         SceneManager.LoadScene(nextSceneName);

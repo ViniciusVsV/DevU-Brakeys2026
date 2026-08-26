@@ -15,5 +15,14 @@ namespace Minigames
         public float minPassportMovement;
         public float maxPassportMovement;
         [Range(1f, 2f)] public float maxPassportSizeMultiplier;
+
+        [Header("Dog Sniffing")]
+        public float minSniffingDuration;
+        public float maxSniffingDuration;
+        [Range(0, 1)] public float repeatSniffingChance;
+        public float minRepeatSniffingDelay;
+        public float maxRepeatSniffingDelay;
+        public float minRepeatSniffingDuration;
+        public float maxRepeatSniffingDuration;
     }
 }

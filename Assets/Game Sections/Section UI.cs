@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace GameSections
@@ -16,6 +17,7 @@ namespace GameSections
 
         [Header("UI Elements")]
         [SerializeField] private TextMeshProUGUI rulesText;
+        [SerializeField] private Animator uiAnimator;
 
         private void Start()
         {
@@ -23,6 +25,15 @@ namespace GameSections
 
             currentSection.sectionCamera.Priority = int.MaxValue;
             rulesText.text = currentSection.sectionRules;
+        }
+
+        private void OnEnable()
+        {
+            SectionBehaviour.OnGameDefeat += DisableUI;
+        }
+        private void OnDisable()
+        {
+            SectionBehaviour.OnGameDefeat -= DisableUI;
         }
 
         public void FocusSection(int sectionIndex)
@@ -50,6 +61,11 @@ namespace GameSections
         public void DisapproveInCurrentSection()
         {
             currentSection.DisapprovePerson();
+        }
+
+        public void DisableUI(CinemachineCamera _)
+        {
+            uiAnimator.SetTrigger("Hide");
         }
     }
 }

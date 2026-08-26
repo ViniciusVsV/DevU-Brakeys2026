@@ -13,10 +13,11 @@ namespace TransitionSystem
         public void ReEnterScene(Action onFinish)
         {
             transitionData.transitionShaderMaterial.SetTexture("_Transition_Texture", transitionData.reRenterTexture);
-            
+
             transitionData.transitionShaderMaterial
                 .DOFloat(1f, "_Progress", transitionData.reRenterDuration)
                 .SetEase(transitionData.reRenterEase)
+                .SetUpdate(true)
                 .OnComplete(() =>
                     {
                         onFinish?.Invoke();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Person;
@@ -39,6 +40,9 @@ namespace GameSections
 
         private bool isBusy;
 
+        public static event Action<PersonBehaviour> OnPersonProcessed;
+        public static event Action<CinemachineCamera> OnGameDefeat;
+
         private void Awake()
         {
             if (minigameObject != null)
@@ -65,8 +69,18 @@ namespace GameSections
 
         public void ApprovePerson()
         {
-            if (isBusy || activePerson == null || nextSection.peopleInLine.Count == sectionData.maxWaitLength)
+            if (isBusy || activePerson == null)
                 return;
+
+            //Se a próxima seção está cheia
+            if (nextSection.peopleInLine.Count == sectionData.maxWaitLength)
+            {
+                //Se a seção atula é uma seção de spawn --> Perde o jogo (primeira seção está lotada e a fila estorou)
+                if (isSpawnSection)
+                    OnGameDefeat?.Invoke(nextSection.sectionCamera);
+
+                return;
+            }
 
             //Para o minigame atual
             minigamePlayable?.StopMinigame();
@@ -84,6 +98,8 @@ namespace GameSections
             //Para o minigame atual
             minigamePlayable?.StopMinigame();
 
+            PersonBehaviour personCopy = activePersonBehaviour;
+            OnPersonProcessed?.Invoke(personCopy);
             Destroy(activePerson.gameObject);
 
             RemovePerson();
@@ -114,7 +130,11 @@ namespace GameSections
                         ApprovePerson();
 
                     else if (isEndSection)
+                    {
+                        PersonBehaviour personCopy = activePersonBehaviour;
+                        OnPersonProcessed?.Invoke(personCopy);
                         Destroy(person.gameObject);
+                    }
 
                     //Chama o minigame vinculado à seção
                     minigamePlayable?.PlayMinigame(activePersonBehaviour);

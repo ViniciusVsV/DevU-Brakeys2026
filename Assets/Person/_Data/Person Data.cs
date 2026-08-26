@@ -5,8 +5,14 @@ namespace Person
     [CreateAssetMenu(fileName = "PersonData", menuName = "Scriptable Objects/PersonData")]
     public class PersonData : ScriptableObject
     {
-        public float spawnCooldown;
+        [Header("Person Spawning")]
+        public float initialDelay;
+        public float initialSpawnCooldown;
+        public float timeToReachMaxDificulty;
+        public float finalSpawnCooldown;
+        public AnimationCurve dificultyCurve;
 
+        [Header("Person Building")]
         public Sprite[] possibleSprites;
         public GameObject[] possiblePassports;
         public GameObject[] possibleSuitcases;

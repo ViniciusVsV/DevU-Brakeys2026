@@ -21,6 +21,7 @@ namespace TransitionSystem
             transitionData.transitionShaderMaterial
                 .DOFloat(1f, "_Progress", transitionData.enterDuration)
                 .SetEase(transitionData.enterEase)
+                .SetUpdate(true)
                 .OnComplete(() =>
                     {
                         onFinish?.Invoke();

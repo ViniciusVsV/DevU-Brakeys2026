@@ -12,7 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd846a765b1ede4da72003401b48fa7, type: 3}
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
-  spawnCooldown: 10
+  initialDelay: 2
+  initialSpawnCooldown: 10
+  timeToReachMaxDificulty: 60
+  finalSpawnCooldown: 2
+  dificultyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   possibleSprites:
   - {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}

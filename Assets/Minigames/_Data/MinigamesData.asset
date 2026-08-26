@@ -20,3 +20,10 @@ MonoBehaviour:
   minPassportMovement: 1
   maxPassportMovement: 2
   maxPassportSizeMultiplier: 1.268
+  minSniffingDuration: 2
+  maxSniffingDuration: 3
+  repeatSniffingChance: 0.3
+  minRepeatSniffingDelay: 0.5
+  maxRepeatSniffingDelay: 1.5
+  minRepeatSniffingDuration: 1
+  maxRepeatSniffingDuration: 2
