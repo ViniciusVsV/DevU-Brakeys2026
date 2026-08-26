@@ -16,14 +16,11 @@ namespace GameSections
         [SerializeField] private SectionData sectionData;
 
         [Header("Section Elements")]
+        [SerializeField] private SectionBehaviour nextSection;
+        [SerializeField] private Transform waitPoint;
+        [SerializeField] private Transform activePoint;
         public CinemachineCamera sectionCamera;
         public string sectionRules;
-        public Transform waitPoint;
-        public Transform activePoint;
-
-        [Header("Adjacent Sections")]
-        [SerializeField] private SectionBehaviour nextSection;
-        [SerializeField] private SectionBehaviour previousSection;
 
         [Header("People")]
         private Transform activePerson;
@@ -100,7 +97,8 @@ namespace GameSections
 
             PersonBehaviour personCopy = activePersonBehaviour;
             OnPersonProcessed?.Invoke(personCopy);
-            Destroy(activePerson.gameObject);
+            
+            activePersonBehaviour.Die();
 
             RemovePerson();
         }

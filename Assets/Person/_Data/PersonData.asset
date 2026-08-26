@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
   initialDelay: 2
   initialSpawnCooldown: 10
-  timeToReachMaxDificulty: 60
+  timeToReachMaxDificulty: 120
   finalSpawnCooldown: 2
   dificultyCurve:
     serializedVersion: 2
@@ -22,18 +22,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -50,5 +50,7 @@ MonoBehaviour:
   - {fileID: 3634302123177172639, guid: 15adf82840b09074383f33938ecf2639, type: 3}
   - {fileID: 9177281684096751784, guid: 5d9a87b8e5b4b6a48a34dc3f01af56ed, type: 3}
   - {fileID: 1975051265218663855, guid: d8f924e03d939184fb2de70702ec9d5d, type: 3}
-  possibleSuitcases: []
+  possibleSuitcases:
+  - {fileID: 7537595338171782230, guid: f7c12aa49b1c5e649a27c4aa151d2859, type: 3}
+  - {fileID: 7278673422618073424, guid: cae46a2a06f02994e9de5a1fa1bbb5e8, type: 3}
   drugChance: 0.5

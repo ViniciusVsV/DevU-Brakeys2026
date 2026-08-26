@@ -20,5 +20,6 @@ namespace Person
 
         public Sprite GetRandomSprite() { return possibleSprites[Random.Range(0, possibleSprites.Length)]; }
         public GameObject GetRandomPassport() { return possiblePassports[Random.Range(0, possiblePassports.Length)]; }
+        public GameObject GetRandomSuitcase() { return possibleSuitcases[Random.Range(0, possibleSuitcases.Length)]; }
     }
 }

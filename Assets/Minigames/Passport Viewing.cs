@@ -40,7 +40,9 @@ namespace Minigames
 
         private void HidePassport()
         {
-            currentPassport.transform.DOScale(Vector2.zero, 0.3f)
+            currentPassport.transform.DOKill();
+
+            currentPassport.transform.DOScale(Vector2.zero, minigamesData.passportHideDuration)
                 .OnComplete(() => { Destroy(currentPassport); });
         }
     }

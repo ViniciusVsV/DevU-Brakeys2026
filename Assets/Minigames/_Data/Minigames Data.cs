@@ -10,11 +10,19 @@ namespace Minigames
         public float passportShowDuration;
         public Ease passportShowEase;
         public float passportHideDuration;
-        public Ease passportHideEase;
         public float maxPassportRotation;
         public float minPassportMovement;
         public float maxPassportMovement;
         [Range(1f, 2f)] public float maxPassportSizeMultiplier;
+
+        [Header("Suitcase XRay")]
+        public float minSuitcaseMoveDuration;
+        public float maxSuitcaseMoveDuration;
+        public Ease suitcaseMoveEase;
+        public float suitcaseEndDuration;
+        public Ease suitcaseEndEase;
+        public float suitcaseDisappearDuration; 
+        public Ease suitcaseDisappearEase;
 
         [Header("Dog Sniffing")]
         public float minSniffingDuration;

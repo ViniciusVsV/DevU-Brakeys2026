@@ -32,7 +32,8 @@ namespace Minigames
         public void StopMinigame()
         {
             //minigame acaba, mata a corrotina e volta ao idle
-            StopCoroutine(coroutine);
+            if (coroutine != null)
+                StopCoroutine(coroutine);
 
             sr.color = Color.yellow;
         }
