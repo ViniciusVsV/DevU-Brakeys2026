@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using PersonObjects;
 using UnityEngine;
 
 namespace Person
@@ -7,11 +8,19 @@ namespace Person
     public class PersonSpawner : MonoBehaviour
     {
         [SerializeField] private PersonData personData;
-        [SerializeField] private GameObject personPrefab;
+        [SerializeField] private PersonBehaviour personPrefab;
+        [SerializeField] private PassportGenerator passportGenerator;
+        [SerializeField] private SuitcaseGenerator suitcaseGenerator;
 
         private float elapsedTime;
 
-        public static event Action<Transform> OnPersonSpawn;
+        public static event Action<PersonBehaviour> OnPersonSpawn;
+
+        private void Awake()
+        {
+            passportGenerator = Instantiate(passportGenerator, transform);
+            suitcaseGenerator = Instantiate(suitcaseGenerator, transform);
+        }
 
         private void Start()
         {
@@ -26,9 +35,15 @@ namespace Person
 
             while (true)
             {
-                GameObject newPerson = Instantiate(personPrefab, transform.position, Quaternion.identity);
+                PersonBehaviour newPerson = Instantiate(personPrefab, transform.position, Quaternion.identity);
 
-                OnPersonSpawn?.Invoke(newPerson.transform);
+                bool invalidPassport = passportGenerator.GeneratePassport(newPerson);
+                newPerson.isInvalid = invalidPassport;
+
+                bool invalidSuitcase = suitcaseGenerator.GenerateSuitcase(newPerson);
+                newPerson.isInvalid = invalidSuitcase;
+
+                OnPersonSpawn?.Invoke(newPerson);
 
                 float progress = Mathf.Clamp01(elapsedTime / personData.timeToReachMaxDificulty);
 

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37037024e1665e4797d95d25f4c45af, type: 3}
+  m_Name: PersonObjectsData
+  m_EditorClassIdentifier: Assembly-CSharp::PersonObjects.PersonObjectsData
+  invalidPassportProbability: 0.2
+  possibleNames:
+  - "Vin\xEDcius"
+  - Paulo
+  - Canelas
+  - Sofia
+  - Rafaela
+  - Ravih
+  possibleCountries:
+  - Brasil
+  - "Cazaquist\xE3o"
+  - Guiana Francesa
+  - China
+  - Uruguai
+  possibleGenders:
+  - Homem
+  - Mulher
+  - Sim
+  possibleInvalidNames:
+  - Vinibosta
+  - Pau
+  - Canela
+  - "S\xF4 Phia"
+  - Rafs
+  - Rave
+  possibleInvalidCountries:
+  - Brasuca
+  - Casa no Quintal
+  - Francesa
+  - Taiwan
+  - Urugay
+  possibleInvalidGenders:
+  - "Alien\xEDgena"
+  - "Aracn\xEDdeo"
+  - Coisa
+  invalidItemProbability: 0.1
+  minNumberItems: 4
+  maxNumberItems: 8
+  possibleItems:
+  - {fileID: 5775403348306949857, guid: a379f7a5f4a541e4089369c1dd0f7051, type: 3}
+  - {fileID: 1257059214897138432, guid: 55d5f39e8e2e109499ce8f68a060e76e, type: 3}
+  - {fileID: 2982799626633911834, guid: 6534e80870441324ab1d141c97e8b7ae, type: 3}
+  - {fileID: 789629596259686513, guid: d95ec7a1711a44044a046db068d6c215, type: 3}
+  possibleInvalidItems:
+  - {fileID: 5775403348306949857, guid: 1b18354810ef9ac408675ab15acfdd5b, type: 3}
+  - {fileID: 1257059214897138432, guid: d82fb7aaa539d3441a9706a2d49a607c, type: 3}
+  - {fileID: 2982799626633911834, guid: 647881af97eab3c4b9f64f37dec30adc, type: 3}
+  - {fileID: 789629596259686513, guid: 364b531f356051f4c89c749d661e690b, type: 3}

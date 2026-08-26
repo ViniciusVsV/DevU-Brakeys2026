@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1901659870772598820}
-  - component: {fileID: 6106492213761079499}
+  - component: {fileID: 3900575557093953682}
   m_Layer: 0
   m_Name: Person Spawner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6106492213761079499
+--- !u!114 &3900575557093953682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8638843696185292024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb77a7d4094ac7c4d9199045f9d1d051, type: 3}
+  m_Script: {fileID: 11500000, guid: 287d40f42d7b8a24cbdeb8a97a3cc18c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PersonSpawner
-  personData: {fileID: 11400000, guid: a6638548e77f0f94cafeb681a08627b6, type: 2}
-  personPrefab: {fileID: 8071078962323644259, guid: d71a4cb3ed872774da2b769d65501113, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::Person.PersonSpawner
+  personData: {fileID: 11400000, guid: 3eea31b761b8668439534f26949bd6b1, type: 2}
+  personPrefab: {fileID: 3128760178514953044, guid: bf4017b9bcfa0ab46a6b8e72e931f7b5, type: 3}
+  passportGenerator: {fileID: 3640700645090933641, guid: e2ae5b560fa83884cb08b84dc503553d, type: 3}
+  suitcaseGenerator: {fileID: 3319332254469152284, guid: 28122657260d3254f9ac0b33f377692d, type: 3}

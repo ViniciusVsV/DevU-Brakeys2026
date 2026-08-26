@@ -1,5 +1,6 @@
 using System;
-using GameSections;
+using Sections;
+using Person;
 using UnityEngine;
 
 public class PersonSectionGlue : MonoBehaviour
@@ -15,7 +16,7 @@ public class PersonSectionGlue : MonoBehaviour
         Person.PersonSpawner.OnPersonSpawn -= SpawnPerson;
     }
 
-    private void SpawnPerson(Transform newPerson)
+    private void SpawnPerson(PersonBehaviour newPerson)
     {
         spawnSection.ReceivePerson(newPerson);
     }

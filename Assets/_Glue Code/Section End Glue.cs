@@ -9,11 +9,11 @@ public class SectionEndGlue : MonoBehaviour
 
     private void OnEnable()
     {
-        GameSections.SectionBehaviour.OnGameDefeat += ApplyEndEffects;
+        Sections.SectionBehaviour.OnGameDefeat += ApplyEndEffects;
     }
     private void OnDisable()
     {
-        GameSections.SectionBehaviour.OnGameDefeat -= ApplyEndEffects;
+        Sections.SectionBehaviour.OnGameDefeat -= ApplyEndEffects;
     }
 
     private void ApplyEndEffects(CinemachineCamera sectionCamera)

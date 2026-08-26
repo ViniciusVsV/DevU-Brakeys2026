@@ -15,10 +15,10 @@ MonoBehaviour:
   passportShowDuration: 1
   passportShowEase: 18
   passportHideDuration: 0.3
-  maxPassportRotation: 30
+  maxPassportRotation: 15
   minPassportMovement: 1
-  maxPassportMovement: 2
-  maxPassportSizeMultiplier: 1.268
+  maxPassportMovement: 1.5
+  maxPassportSizeMultiplier: 1.15
   minSuitcaseMoveDuration: 1.5
   maxSuitcaseMoveDuration: 4
   suitcaseMoveEase: 2

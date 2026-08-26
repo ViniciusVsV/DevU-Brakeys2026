@@ -13,7 +13,7 @@ namespace Minigames
         //Terminar o minigame (aprovar ou recusar a pessoa) irá iniciar uma animação com DOTween da mala diminuindo de tamanho até ser deletada
         [SerializeField] private MinigamesData minigamesData;
 
-        [SerializeField] private Transform suitcaseSpawnPoint;
+        [SerializeField] private Transform startPoint;
         [SerializeField] private Transform xRayPoint;
         [SerializeField] private Transform endPoint;
         private GameObject currentSuitcase;
@@ -29,9 +29,11 @@ namespace Minigames
 
         private void SpawnSuitcase(PersonBehaviour person)
         {
-            GameObject suitcasePrefab = person.GetSuitcase();
+            currentSuitcase = person.GetSuitcase();
 
-            currentSuitcase = Instantiate(suitcasePrefab, suitcaseSpawnPoint.position, Quaternion.identity);
+            currentSuitcase.transform.position = startPoint.position;
+            currentSuitcase.transform.parent = null;
+            currentSuitcase.SetActive(true);
 
             currentSuitcase.transform.DOMoveX(xRayPoint.position.x, Random.Range(minigamesData.minSuitcaseMoveDuration, minigamesData.maxSuitcaseMoveDuration))
                 .SetEase(Ease.Linear);

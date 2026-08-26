@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8015815749917110403}
-  - component: {fileID: 4276086660103610048}
+  - component: {fileID: 3128760178514953044}
   - component: {fileID: 1690524986601283790}
   m_Layer: 0
   m_Name: Person
@@ -33,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4276086660103610048
+--- !u!114 &3128760178514953044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8071078962323644259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52dbe74407f464546b299db930be4d68, type: 3}
+  m_Script: {fileID: 11500000, guid: 20984bc2732291e4488278ba1effb22b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PersonBehaviour
-  personData: {fileID: 11400000, guid: a6638548e77f0f94cafeb681a08627b6, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Person.PersonBehaviour
+  personData: {fileID: 11400000, guid: 3eea31b761b8668439534f26949bd6b1, type: 2}
+  suitcase: {fileID: 7288157705389559054, guid: 57775ba1cac4de548ba4287c34be7b34, type: 3}
+  isInvalid: 0
 --- !u!212 &1690524986601283790
 SpriteRenderer:
   serializedVersion: 2

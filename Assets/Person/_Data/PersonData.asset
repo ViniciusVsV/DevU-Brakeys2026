@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd846a765b1ede4da72003401b48fa7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8eb9606073f8dc84c806caca3a356df3, type: 3}
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
-  initialDelay: 2
-  initialSpawnCooldown: 10
-  timeToReachMaxDificulty: 120
-  finalSpawnCooldown: 2
+  initialDelay: 0.2
+  initialSpawnCooldown: 15
+  timeToReachMaxDificulty: 180
+  finalSpawnCooldown: 3
   dificultyCurve:
     serializedVersion: 2
     m_Curve:
@@ -40,17 +40,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  possibleSprites:
-  - {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  - {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  possiblePassports:
-  - {fileID: 1975051265218663855, guid: 926cbe1512faded488e3802e3260623e, type: 3}
-  - {fileID: 3634302123177172639, guid: 15adf82840b09074383f33938ecf2639, type: 3}
-  - {fileID: 9177281684096751784, guid: 5d9a87b8e5b4b6a48a34dc3f01af56ed, type: 3}
-  - {fileID: 1975051265218663855, guid: d8f924e03d939184fb2de70702ec9d5d, type: 3}
-  possibleSuitcases:
-  - {fileID: 7537595338171782230, guid: f7c12aa49b1c5e649a27c4aa151d2859, type: 3}
-  - {fileID: 7278673422618073424, guid: cae46a2a06f02994e9de5a1fa1bbb5e8, type: 3}
   drugChance: 0.5
+  movementDuration: 1
+  movementEase: 6
