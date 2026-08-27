@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c37c6ad4b87de4a9ed2ff99791e788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonObjects.SuitcaseGenerator
-  personObjectsData: {fileID: 11400000, guid: b7c49b90ae9d8494ca918ce3daafcc4f, type: 2}
+  personData: {fileID: 11400000, guid: 3eea31b761b8668439534f26949bd6b1, type: 2}
   baseSuitcase: {fileID: 7825720408888240296, guid: d9667c6ca6476b846b544d6a07adb068, type: 3}

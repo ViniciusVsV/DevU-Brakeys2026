@@ -19,6 +19,8 @@ namespace Sections
         [SerializeField] private TextMeshProUGUI rulesText;
         [SerializeField] private Animator uiAnimator;
 
+        private bool showingRules;
+
         private void Start()
         {
             currentSection = accessableSections[0];
@@ -51,6 +53,16 @@ namespace Sections
             currentSection = accessableSections[sectionIndex];
 
             rulesText.text = currentSection.sectionRules;
+        }
+
+        public void ToggleRules()
+        {
+            if (!showingRules)
+                uiAnimator.SetTrigger("Show Rules");
+            else
+                uiAnimator.SetTrigger("Hide Rules");
+
+            showingRules = !showingRules;
         }
 
         public void ApproveActiveInCurrentSection()

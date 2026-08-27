@@ -40,6 +40,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  movementDuration: 2
+  movementEase: 6
   possibleSprites:
   - {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
@@ -47,5 +49,39 @@ MonoBehaviour:
   - {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
   - {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
   drugChance: 0.25
-  movementDuration: 1
-  movementEase: 6
+  invalidPassportProbability: 0.2
+  possibleNames:
+  - Penis
+  - AAAA
+  - Me mata
+  possibleCountries:
+  - "Azerbaij\xE3o"
+  - "\xCDndia"
+  - Minas Gerais
+  possibleGenders:
+  - Homi
+  - Mulher
+  possibleInvalidNames:
+  - Penes
+  - AAaA
+  - "N\xE3o em mata"
+  possibleInvalidCountries:
+  - "Dagest\xE3o"
+  - "Indian\xF3polis"
+  - "Manos Espec\xEDficos"
+  possibleInvalidGenders:
+  - Alfa
+  - Beta
+  invalidItemProbability: 0.1
+  minNumberItems: 4
+  maxNumberItems: 10
+  possibleItems:
+  - {fileID: 5775403348306949857, guid: a379f7a5f4a541e4089369c1dd0f7051, type: 3}
+  - {fileID: 1257059214897138432, guid: 55d5f39e8e2e109499ce8f68a060e76e, type: 3}
+  - {fileID: 2982799626633911834, guid: 6534e80870441324ab1d141c97e8b7ae, type: 3}
+  - {fileID: 789629596259686513, guid: d95ec7a1711a44044a046db068d6c215, type: 3}
+  possibleInvalidItems:
+  - {fileID: 5775403348306949857, guid: 1b18354810ef9ac408675ab15acfdd5b, type: 3}
+  - {fileID: 1257059214897138432, guid: d82fb7aaa539d3441a9706a2d49a607c, type: 3}
+  - {fileID: 2982799626633911834, guid: 647881af97eab3c4b9f64f37dec30adc, type: 3}
+  - {fileID: 789629596259686513, guid: 364b531f356051f4c89c749d661e690b, type: 3}

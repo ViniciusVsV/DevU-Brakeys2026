@@ -12,19 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5310a277e75ba9a419cd0455684b6f6d, type: 3}
   m_Name: MinigamesData
   m_EditorClassIdentifier: Assembly-CSharp::Minigames.MinigamesData
-  passportShowDuration: 1
+  passportShowDuration: 1.2
   passportShowEase: 18
-  passportHideDuration: 0.3
+  passportHideDuration: 0.7
   passportHideEase: 0
+  suitacseSpawnDuration: 0.5
+  suitcaseSpawnEase: 24
   minSuitcaseMoveDuration: 1
-  maxSuitcaseMoveDuration: 2
+  maxSuitcaseMoveDuration: 1.5
   suitcaseMoveEase: 1
   suitcaseEndDuration: 0.5
   suitcaseEndEase: 1
   minSniffingDuration: 1
   maxSniffingDuration: 2
   repeatSniffingChance: 0.2
-  minRepeatSniffingDelay: 0.5
-  maxRepeatSniffingDelay: 1
-  minRepeatSniffingDuration: 1
-  maxRepeatSniffingDuration: 2
+  minRepeatSniffingDelay: 0.4
+  maxRepeatSniffingDelay: 0.7
+  minRepeatSniffingDuration: 0.5
+  maxRepeatSniffingDuration: 1

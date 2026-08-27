@@ -13,6 +13,8 @@ namespace Minigames
         public Ease passportHideEase;
 
         [Header("Suitcase XRay")]
+        public float suitacseSpawnDuration;
+        public Ease suitcaseSpawnEase;
         public float minSuitcaseMoveDuration;
         public float maxSuitcaseMoveDuration;
         public Ease suitcaseMoveEase;

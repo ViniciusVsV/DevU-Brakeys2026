@@ -6,7 +6,7 @@ namespace PersonObjects
 {
     public class PassportGenerator : MonoBehaviour
     {
-        [SerializeField] private PersonObjectsData personObjectsData;
+        [SerializeField] private PersonData personData;
         [SerializeField] private PassportBehaviour basePassport;
 
         private bool generatedInvalid;
@@ -24,20 +24,20 @@ namespace PersonObjects
             referencePassport.SetPhoto(owner.GetSprite());
             carriedPassport.SetPhoto(owner.GetSprite());
 
-            int nameIndex = personObjectsData.GetRandomNameIndex();
-            int countryIndex = personObjectsData.GetRandomCountryIndex();
-            int genderIndex = personObjectsData.GetRandomGenderIndex();
+            int nameIndex = personData.GetRandomNameIndex();
+            int countryIndex = personData.GetRandomCountryIndex();
+            int genderIndex = personData.GetRandomGenderIndex();
 
             //Primeiro constrói o passaporte válido
-            referencePassport.nameText.text = personObjectsData.possibleNames[nameIndex];
-            referencePassport.countryText.text = personObjectsData.possibleCountries[countryIndex];
-            referencePassport.genderText.text = personObjectsData.possibleGenders[genderIndex];
+            referencePassport.SetName(personData.possibleNames[nameIndex]);
+            referencePassport.SetCountry(personData.possibleCountries[countryIndex]);
+            referencePassport.SetGender(personData.possibleGenders[genderIndex]);
 
             //Segundo, faz uma rolagem para verificar se o segundo passaporte será inválido
             float invalidRoll = Random.Range(0f, 1f);
 
             //Segundo passaporte é inválido
-            if (invalidRoll < personObjectsData.invalidPassportProbability)
+            if (invalidRoll < personData.invalidPassportProbability)
             {
                 carriedPassport.CopyValues(referencePassport);
 
@@ -56,13 +56,13 @@ namespace PersonObjects
                     switch (availableFields[i])
                     {
                         case 0:
-                            carriedPassport.nameText.text = personObjectsData.possibleInvalidNames[nameIndex];
+                            carriedPassport.SetName(personData.possibleInvalidNames[nameIndex]);
                             break;
                         case 1:
-                            carriedPassport.countryText.text = personObjectsData.possibleInvalidCountries[countryIndex];
+                            carriedPassport.SetCountry(personData.possibleInvalidCountries[countryIndex]);
                             break;
                         case 2:
-                            carriedPassport.genderText.text = personObjectsData.possibleInvalidGenders[genderIndex];
+                            carriedPassport.SetGender(personData.possibleInvalidGenders[genderIndex]);
                             break;
                     }
                 }

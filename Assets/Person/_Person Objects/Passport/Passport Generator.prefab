@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80856561f6b1c5640a3ad4c8b5e5f056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonObjects.PassportGenerator
-  personObjectsData: {fileID: 11400000, guid: b7c49b90ae9d8494ca918ce3daafcc4f, type: 2}
+  personData: {fileID: 11400000, guid: 3eea31b761b8668439534f26949bd6b1, type: 2}
   basePassport: {fileID: 306862083544081639, guid: f3aef4b50bdf7234f8d98c2dcbe68877, type: 3}

@@ -5,7 +5,7 @@ namespace PersonObjects
 {
     public class SuitcaseGenerator : MonoBehaviour
     {
-        [SerializeField] private PersonObjectsData personObjectsData;
+        [SerializeField] private PersonData personData;
         [SerializeField] private SuitcaseBehaviour baseSuitcase;
 
         private bool generatedInvalid;
@@ -18,7 +18,7 @@ namespace PersonObjects
             Bounds suitcaseBounds = suitcase.GetBounds(); ;
 
             //Primeiro, randomiza o numero de items
-            int numberItems = Random.Range(personObjectsData.minNumberItems, personObjectsData.maxNumberItems);
+            int numberItems = Random.Range(personData.minNumberItems, personData.maxNumberItems);
 
             //Depois, randomiza cada item (se é válido ou não)
             for (int i = 0; i < numberItems; i++)
@@ -26,13 +26,13 @@ namespace PersonObjects
                 GameObject itemPrefab;
                 float invalidRoll = Random.Range(0f, 1f);
 
-                if(invalidRoll < personObjectsData.invalidItemProbability)
+                if (invalidRoll < personData.invalidItemProbability)
                 {
-                    itemPrefab = personObjectsData.GetRandomInvalidItem();
+                    itemPrefab = personData.GetRandomInvalidItem();
                     generatedInvalid = true;
                 }
                 else
-                    itemPrefab = personObjectsData.GetRandomItem();
+                    itemPrefab = personData.GetRandomItem();
 
                 float randomRotation = Random.Range(-180, 180);
 

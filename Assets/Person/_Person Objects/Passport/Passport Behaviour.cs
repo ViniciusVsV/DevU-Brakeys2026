@@ -7,14 +7,14 @@ namespace PersonObjects
     public class PassportBehaviour : MonoBehaviour
     {
         [SerializeField] private Image photo;
-        public TextMeshProUGUI nameText;
-        public TextMeshProUGUI countryText;
-        public TextMeshProUGUI genderText;
-        
-        public void SetPhoto(Sprite personPhoto)
-        {
-            photo.sprite = personPhoto;
-        }
+        [SerializeField] private TextMeshProUGUI nameText;
+        [SerializeField] private TextMeshProUGUI countryText;
+        [SerializeField] private TextMeshProUGUI genderText;
+
+        public void SetPhoto(Sprite personPhoto) { photo.sprite = personPhoto; }
+        public void SetName(string name) { nameText.text = name; }
+        public void SetCountry(string country) { countryText.text = country; }
+        public void SetGender(string gender) { genderText.text = gender; }
 
         public void CopyValues(PassportBehaviour passportBehaviour)
         {
