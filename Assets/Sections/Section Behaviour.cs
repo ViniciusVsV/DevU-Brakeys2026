@@ -113,17 +113,25 @@ namespace Sections
             isBusy = false;
 
             if (isSpawnSection)
+            {
                 ApprovePerson();
+                yield break;
+            }
 
-            else if (isEndSection)
+            if (isEndSection)
             {
                 PersonBehaviour personCopy = activePerson;
                 OnPersonProcessed?.Invoke(personCopy);
+
                 activePerson.Die();
+
+                yield break; ;
             }
 
             //Chama o minigame vinculado à seção
             minigamePlayable?.PlayMinigame(activePerson);
+
+            activePerson.Speak();
         }
 
         private void MovePersonToLine(PersonBehaviour person)

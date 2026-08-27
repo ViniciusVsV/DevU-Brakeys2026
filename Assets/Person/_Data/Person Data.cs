@@ -20,10 +20,20 @@ namespace Person
         [Header("Person Building")]
         [Header("Sprites")]
         public Sprite[] possibleSprites;
+
         public Sprite GetRandomSprite() { return possibleSprites[Random.Range(0, possibleSprites.Length)]; }
 
         [Header("Drugs")]
         [Range(0, 1)] public float drugChance;
+
+        [Header("Dialogue Lines")]
+        [Range(0, 1)] public float speakingProbability;
+        public string[] possibleLines;
+        public float dialogueTypingDelay;
+        public float dialogueFadeDelay;
+        public float dialogueFadeDuration;
+
+        public string GetRandomLine() { return possibleLines[Random.Range(0, possibleLines.Length)]; }
 
         [Header("Passport Generation")]
         [Range(0, 1)] public float invalidPassportProbability;

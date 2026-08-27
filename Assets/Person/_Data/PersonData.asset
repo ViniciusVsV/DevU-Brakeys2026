@@ -49,6 +49,15 @@ MonoBehaviour:
   - {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
   - {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
   drugChance: 0.25
+  speakingProbability: 0.3
+  possibleLines:
+  - I'm trustworthy...
+  - Nothing to see here! haha..
+  - Hey! Good morning!
+  - Hurry it up.
+  dialogueTypingDelay: 0.03
+  dialogueFadeDelay: 1
+  dialogueFadeDuration: 2
   invalidPassportProbability: 0.2
   possibleNames:
   - Penis

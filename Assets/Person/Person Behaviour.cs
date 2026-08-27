@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using PersonObjects;
+using TMPro;
 using UnityEngine;
 
 namespace Person
@@ -19,10 +21,13 @@ namespace Person
         private GameObject referencePassport;
         private GameObject suitcase;
 
+        [Header("Dialogue Line")]
+        [SerializeField] private TextMeshProUGUI textUI;
+        private string line;
+        private bool hasSpoken;
+
         private bool hasDrugs;
         public bool isInvalid;
-
-
 
         private void Awake()
         {
@@ -33,6 +38,11 @@ namespace Person
 
             hasDrugs = UnityEngine.Random.Range(0f, 1f) < personData.drugChance;
             isInvalid = hasDrugs;
+
+            line = personData.GetRandomLine();
+
+            textUI.maxVisibleCharacters = 0;
+            textUI.text = line;
         }
 
         public void Move(Vector2 destination, Action onFinish)
@@ -50,6 +60,37 @@ namespace Person
             sequence.Append(transform.DOMoveY(-100, 1f)).SetEase(Ease.Linear);
 
             sequence.OnComplete(() => Destroy(gameObject));
+        }
+
+        public void Speak()
+        {
+            if (line.Length == 0 || hasSpoken || UnityEngine.Random.Range(0f, 1f) > personData.speakingProbability)
+                return;
+
+            hasSpoken = true;
+
+            textUI.transform.parent.SetParent(null);
+
+            StartCoroutine(SpeakRoutine());
+        }
+        private IEnumerator SpeakRoutine()
+        {
+            textUI.ForceMeshUpdate();
+
+            int totalCharacters = textUI.textInfo.characterCount;
+
+            for (int i = 0; i <= totalCharacters; i++)
+            {
+                textUI.maxVisibleCharacters = i;
+
+                yield return new WaitForSeconds(personData.dialogueTypingDelay);
+            }
+
+            textUI.DOFade(0f, personData.dialogueFadeDuration).SetDelay(personData.dialogueFadeDelay)
+                .OnComplete(() =>
+                {
+                    Destroy(textUI.transform.parent.gameObject);
+                });
         }
 
         public void SetReferencePassport(GameObject passport) { referencePassport = passport; }
