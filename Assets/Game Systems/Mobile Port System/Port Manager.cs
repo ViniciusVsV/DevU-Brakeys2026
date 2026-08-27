@@ -8,11 +8,6 @@ namespace MobilePortSystem
 
         [SerializeField] private GameObject canvasObject;
 
-        [Header("Movement Controls")]
-        [SerializeField] private GameObject movementStick;
-        [SerializeField] private GameObject movementButtons;
-        public bool usesStick;
-
         [Header("Pause Toggle")]
         [SerializeField] private GameObject[] disableableObjects;
 
@@ -46,17 +41,6 @@ namespace MobilePortSystem
             {
                 PlayerPrefs.SetInt("IsOnMobile", 1);
                 PlayerPrefs.Save();
-
-                if (usesStick)
-                {
-                    movementStick.SetActive(true);
-                    movementButtons.SetActive(false);
-                }
-                else
-                {
-                    movementStick.SetActive(false);
-                    movementButtons.SetActive(true);
-                }
             }
             else
                 PlayerPrefs.DeleteKey("IsOnMobile");

@@ -6,24 +6,25 @@ namespace Player
 {
     public class InputHandler : MonoBehaviour
     {
-        public static event Action<int> OnSectionChosen;
+        public bool pauseDisabled;
+        private bool isPaused;
 
-        public void On1(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnSectionChosen?.Invoke(1);
-        }
+        public static event Action<bool> OnPausePress;
 
-        public void On2(InputAction.CallbackContext context)
+        public void OnPause(InputAction.CallbackContext context)
         {
-            if (context.performed)
-                OnSectionChosen?.Invoke(2);
-        }
+            if (pauseDisabled)
+                return;
 
-        public void On3(InputAction.CallbackContext context)
-        {
             if (context.performed)
-                OnSectionChosen?.Invoke(3);
+            {
+                if (isPaused)
+                    isPaused = false;
+                else
+                    isPaused = true;
+
+                OnPausePress?.Invoke(isPaused);
+            }
         }
     }
 }
