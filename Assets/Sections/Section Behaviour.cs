@@ -36,7 +36,7 @@ namespace Sections
 
         private bool isBusy;
 
-        public static event Action<PersonBehaviour> OnPersonProcessed;
+        public static event Action<PersonBehaviour, bool> OnPersonProcessed;
         public static event Action<CinemachineCamera> OnGameDefeat;
 
         private void Awake()
@@ -94,7 +94,7 @@ namespace Sections
             minigamePlayable?.StopMinigame();
 
             PersonBehaviour personCopy = activePerson;
-            OnPersonProcessed?.Invoke(personCopy);
+            OnPersonProcessed?.Invoke(personCopy, false);
             activePerson.Die();
 
             StartCoroutine(ReorderPeople());
@@ -121,7 +121,7 @@ namespace Sections
             if (isEndSection)
             {
                 PersonBehaviour personCopy = activePerson;
-                OnPersonProcessed?.Invoke(personCopy);
+                OnPersonProcessed?.Invoke(personCopy, true);
 
                 activePerson.Die();
 
