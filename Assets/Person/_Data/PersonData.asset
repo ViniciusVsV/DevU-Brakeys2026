@@ -15,7 +15,7 @@ MonoBehaviour:
   initialDelay: 0.2
   initialSpawnCooldown: 15
   timeToReachMaxDificulty: 180
-  finalSpawnCooldown: 3
+  finalSpawnCooldown: 2
   dificultyCurve:
     serializedVersion: 2
     m_Curve:
@@ -40,6 +40,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  drugChance: 0.5
+  possibleSprites:
+  - {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  - {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
+  - {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
+  drugChance: 0.25
   movementDuration: 1
   movementEase: 6

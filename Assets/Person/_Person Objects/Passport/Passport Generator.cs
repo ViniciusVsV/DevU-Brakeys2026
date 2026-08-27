@@ -21,6 +21,9 @@ namespace PersonObjects
             PassportBehaviour referencePassport = Instantiate(basePassport, owner.transform);
             PassportBehaviour carriedPassport = Instantiate(basePassport, owner.transform);
 
+            referencePassport.SetPhoto(owner.GetSprite());
+            carriedPassport.SetPhoto(owner.GetSprite());
+
             int nameIndex = personObjectsData.GetRandomNameIndex();
             int countryIndex = personObjectsData.GetRandomCountryIndex();
             int genderIndex = personObjectsData.GetRandomGenderIndex();

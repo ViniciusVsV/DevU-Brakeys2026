@@ -110,7 +110,6 @@ namespace Sections
 
             yield return new WaitUntil(() => finished);
 
-            Debug.Log("FINISHED!");
             isBusy = false;
 
             if (isSpawnSection)

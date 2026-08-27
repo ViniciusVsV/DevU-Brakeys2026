@@ -15,21 +15,16 @@ MonoBehaviour:
   passportShowDuration: 1
   passportShowEase: 18
   passportHideDuration: 0.3
-  maxPassportRotation: 15
-  minPassportMovement: 1
-  maxPassportMovement: 1.5
-  maxPassportSizeMultiplier: 1.15
-  minSuitcaseMoveDuration: 1.5
-  maxSuitcaseMoveDuration: 4
-  suitcaseMoveEase: 2
+  passportHideEase: 0
+  minSuitcaseMoveDuration: 1
+  maxSuitcaseMoveDuration: 2
+  suitcaseMoveEase: 1
   suitcaseEndDuration: 0.5
   suitcaseEndEase: 1
-  suitcaseDisappearDuration: 0.3
-  suitcaseDisappearEase: 18
-  minSniffingDuration: 2
-  maxSniffingDuration: 4
+  minSniffingDuration: 1
+  maxSniffingDuration: 2
   repeatSniffingChance: 0.2
   minRepeatSniffingDelay: 0.5
-  maxRepeatSniffingDelay: 1.5
+  maxRepeatSniffingDelay: 1
   minRepeatSniffingDuration: 1
   maxRepeatSniffingDuration: 2

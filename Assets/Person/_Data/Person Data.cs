@@ -14,10 +14,16 @@ namespace Person
         public AnimationCurve dificultyCurve;
 
         [Header("Person Building")]
+        public Sprite[] possibleSprites;
         [Range(0, 1)] public float drugChance;
 
         [Header("Person Movement")]
         public float movementDuration;
         public Ease movementEase;
+
+        public Sprite GetRandomSprite()
+        {
+            return possibleSprites[Random.Range(0, possibleSprites.Length)];
+        }
     }
 }

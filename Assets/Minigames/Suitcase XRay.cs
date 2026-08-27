@@ -1,4 +1,3 @@
-using System.Collections;
 using DG.Tweening;
 using Person;
 using UnityEngine;
@@ -42,17 +41,32 @@ namespace Minigames
         private void DespawnSuitcase()
         {
             currentSuitcase.transform.DOKill();
+            GameObject lastSuitcase = currentSuitcase;
 
-            //Move a mala até a beira esquerda da esteira e faz ela desaparecer
             Sequence sequence = DOTween.Sequence();
 
-            sequence.Append(currentSuitcase.transform.DOMoveX(endPoint.position.x, minigamesData.suitcaseEndDuration)
-                .SetEase(minigamesData.suitcaseEndEase));
+            // Move a mala até o final da esteira
+            sequence.Append(
+                lastSuitcase.transform
+                    .DOMoveX(endPoint.position.x, minigamesData.suitcaseEndDuration)
+                    .SetEase(minigamesData.suitcaseEndEase)
+            );
 
-            sequence.Append(currentSuitcase.transform.DOScale(Vector2.zero, minigamesData.suitcaseDisappearDuration)
-                .SetEase(minigamesData.suitcaseDisappearEase));
+            // Faz a mala cair para baixo
+            sequence.Append(
+                lastSuitcase.transform
+                    .DOMoveY(lastSuitcase.transform.position.y - 30f, 1f)
+                    .SetEase(Ease.InQuad)
+            );
 
-            sequence.OnComplete(() => Destroy(currentSuitcase));
+            // Rotaciona enquanto cai
+            sequence.Join(
+                lastSuitcase.transform
+                    .DORotate(new Vector3(0, 0, 180f), 1f, RotateMode.LocalAxisAdd)
+                    .SetEase(Ease.InQuad)
+            );
+
+            sequence.OnComplete(() => Destroy(lastSuitcase));
         }
     }
 }

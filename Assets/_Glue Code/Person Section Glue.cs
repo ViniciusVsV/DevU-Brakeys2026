@@ -1,4 +1,3 @@
-using System;
 using Sections;
 using Person;
 using UnityEngine;

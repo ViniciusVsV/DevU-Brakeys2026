@@ -12,6 +12,9 @@ namespace Person
         //Cada pessoa aleatoriamente terá drogas ou não
         [SerializeField] private PersonData personData;
 
+        private SpriteRenderer sr;
+        private Sprite sprite;
+
         private GameObject carriedPassport;
         private GameObject referencePassport;
         private GameObject suitcase;
@@ -19,11 +22,14 @@ namespace Person
         private bool hasDrugs;
         public bool isInvalid;
 
-        private SpriteRenderer sr;
+
 
         private void Awake()
         {
             sr = GetComponent<SpriteRenderer>();
+
+            sprite = personData.GetRandomSprite();
+            sr.sprite = sprite;
 
             hasDrugs = UnityEngine.Random.Range(0f, 1f) < personData.drugChance;
             isInvalid = hasDrugs;
@@ -50,6 +56,7 @@ namespace Person
         public void SetCarriedPassport(GameObject passport) { carriedPassport = passport; }
         public void SetSuitcase(GameObject suitcase) { this.suitcase = suitcase; }
 
+        public Sprite GetSprite() { return sprite; }
         public GameObject GetCarriedPassport() { return carriedPassport; }
         public GameObject GetReferencePassport() { return referencePassport; }
         public GameObject GetSuitcase() { return suitcase; }
