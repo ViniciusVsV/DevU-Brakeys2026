@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb9606073f8dc84c806caca3a356df3, type: 3}
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
-  initialDelay: 0.2
+  initialDelay: 5
   initialSpawnCooldown: 15
   timeToReachMaxDificulty: 180
   finalSpawnCooldown: 2
@@ -40,7 +40,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  movementDuration: 2
+  movementDuration: 1
   movementEase: 6
   possibleSprites:
   - {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
