@@ -11,6 +11,7 @@ namespace Minigames
         [SerializeField] private Transform carriedPassportStartPoint;
         [SerializeField] private Transform carriedPassportEndPoint;
         [SerializeField] private Transform referencePassportPoint;
+        [SerializeField] private GameObject tvStaticImage;
 
         private GameObject referencePassport;
         private GameObject carriedPassport;
@@ -33,9 +34,20 @@ namespace Minigames
             carriedPassport.transform.parent = null;
             carriedPassport.SetActive(true);
 
-            referencePassport.transform.position = referencePassportPoint.position;
-            referencePassport.transform.parent = null;
-            referencePassport.SetActive(true);
+            //Pisca a televisão com estática por um tempinho e então mostra o passaporte na televisão
+            tvStaticImage.SetActive(true);
+
+            Sequence sequence = DOTween.Sequence();
+
+            sequence.AppendInterval(0.5f);
+
+            sequence.AppendCallback(() =>
+            {
+                tvStaticImage.SetActive(false);
+                referencePassport.transform.position = referencePassportPoint.position;
+                referencePassport.transform.parent = null;
+                referencePassport.SetActive(true);
+            });
 
             carriedPassport.transform.DOMoveY(carriedPassportEndPoint.position.y, minigamesData.passportShowDuration).SetEase(minigamesData.passportShowEase);
         }
@@ -43,6 +55,18 @@ namespace Minigames
         private void HidePassports()
         {
             carriedPassport.transform.DOKill();
+
+            tvStaticImage.SetActive(true);
+            referencePassport.SetActive(false);
+
+            Sequence sequence = DOTween.Sequence();
+
+            sequence.AppendInterval(0.5f);
+
+            sequence.AppendCallback(() =>
+            {
+                tvStaticImage.SetActive(false);
+            });
 
             carriedPassport.transform.DOMoveY(carriedPassportStartPoint.position.y, minigamesData.passportHideDuration).SetEase(minigamesData.passportHideEase)
                 .OnComplete(() =>
