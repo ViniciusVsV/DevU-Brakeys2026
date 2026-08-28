@@ -8,29 +8,29 @@ namespace TransitionSystem
     public class SceneEnter : MonoBehaviour
     {
         [SerializeField] private TransitionData transitionData;
+        [SerializeField] private RectTransform transitionScreen;
 
         private void Awake()
         {
-            transitionData.transitionShaderMaterial.SetFloat("_Progress", -1);
+            transitionScreen.position = Vector2.zero;
         }
 
         public void EnterScene(Action onFinish)
         {
-            transitionData.transitionShaderMaterial.SetTexture("_Transition_Texture", transitionData.enterTexture);
+            Vector2 newPosition = transitionData.GetDirectionVector(transitionData.enterDirection) * new Vector2(1920, 1080);
 
-            transitionData.transitionShaderMaterial
-                .DOFloat(1f, "_Progress", transitionData.enterDuration)
+            transitionScreen.DOAnchorPos(newPosition, transitionData.enterDuration)
                 .SetEase(transitionData.enterEase)
                 .SetUpdate(true)
                 .OnComplete(() =>
-                    {
-                        onFinish?.Invoke();
-                    });
+                {
+                    onFinish?.Invoke();
+                });
         }
 
         private void OnDisable()
         {
-            transitionData.transitionShaderMaterial.DOKill();
+            transitionScreen.DOKill();
         }
     }
 }

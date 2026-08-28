@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
   initialDelay: 5
   initialSpawnCooldown: 15
-  timeToReachMaxDificulty: 180
+  timeToReachMaxDificulty: 1
   finalSpawnCooldown: 2
   dificultyCurve:
     serializedVersion: 2
@@ -81,6 +81,11 @@ MonoBehaviour:
   possibleInvalidGenders:
   - Alfa
   - Beta
+  possibleSuitcaseSprites:
+  - {fileID: 4912449958874415820, guid: f8b9ea36d27368f40978a0d4a1010894, type: 3}
+  - {fileID: -6060096216228811492, guid: ffbb0a5f37367374aa39b3ce9be289ab, type: 3}
+  - {fileID: 2502177104782010740, guid: 9d546e46c48fd354f8dba45c9c096345, type: 3}
+  - {fileID: -5224194166715062165, guid: 913d13f0d4971da4e8dd436cf8ebb9dc, type: 3}
   invalidItemProbability: 0.1
   minNumberItems: 4
   maxNumberItems: 10

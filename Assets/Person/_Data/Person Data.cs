@@ -49,12 +49,14 @@ namespace Person
         public int GetRandomGenderIndex() { return Random.Range(0, possibleGenders.Length); }
 
         [Header("Suitcase Generation")]
+        public Sprite[] possibleSuitcaseSprites;
         [Range(0, 1)] public float invalidItemProbability;
         public int minNumberItems;
         public int maxNumberItems;
         public GameObject[] possibleItems;
         public GameObject[] possibleInvalidItems;
 
+        public Sprite GetRandomSuitcaseSprite() { return possibleSuitcaseSprites[Random.Range(0, possibleSuitcaseSprites.Length)]; }
         public GameObject GetRandomItem() { return possibleItems[Random.Range(0, possibleItems.Length)]; }
         public GameObject GetRandomInvalidItem() { return possibleInvalidItems[Random.Range(0, possibleInvalidItems.Length)]; }
     }

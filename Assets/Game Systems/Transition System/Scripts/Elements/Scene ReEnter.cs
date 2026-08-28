@@ -9,24 +9,29 @@ namespace TransitionSystem
     public class SceneReEnter : MonoBehaviour
     {
         [SerializeField] private TransitionData transitionData;
+        [SerializeField] private RectTransform transitionScreen;
+
+        private void Awake()
+        {
+            transitionScreen.position = Vector2.zero;
+        }
 
         public void ReEnterScene(Action onFinish)
         {
-            transitionData.transitionShaderMaterial.SetTexture("_Transition_Texture", transitionData.reRenterTexture);
+            Vector2 newPosition = transitionData.GetDirectionVector(transitionData.reEnterDirection) * new Vector2(1920, 1080);
 
-            transitionData.transitionShaderMaterial
-                .DOFloat(1f, "_Progress", transitionData.reRenterDuration)
+            transitionScreen.DOAnchorPos(newPosition, transitionData.reRenterDuration)
                 .SetEase(transitionData.reRenterEase)
                 .SetUpdate(true)
                 .OnComplete(() =>
-                    {
-                        onFinish?.Invoke();
-                    });
+                {
+                    onFinish?.Invoke();
+                });
         }
 
         private void OnDisable()
         {
-            transitionData.transitionShaderMaterial.DOKill();
+            transitionScreen.DOKill();
         }
     }
 }

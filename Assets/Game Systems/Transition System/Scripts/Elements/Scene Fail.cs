@@ -10,24 +10,25 @@ namespace TransitionSystem
     public class SceneFail : MonoBehaviour
     {
         [SerializeField] private TransitionData transitionData;
+        [SerializeField] private RectTransform transitionScreen;
 
         public void FailScene()
         {
-            transitionData.transitionShaderMaterial.SetTexture("_Transition_Texture", transitionData.failTexture);
+            Vector2 newPosition = transitionData.GetDirectionVector(transitionData.failDirection) * new Vector2(1920, 1080);
+            transitionScreen.position = newPosition;
 
-            transitionData.transitionShaderMaterial.DOFloat(-0.1f, "_Progress", transitionData.failDuration)
+            transitionScreen.DOAnchorPos(Vector2.zero, transitionData.failDuration)
                 .SetEase(transitionData.failEase)
-                .SetDelay(transitionData.failStartDelay)
                 .SetUpdate(true)
                 .OnComplete(() =>
-                    {
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                    });
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                });
         }
 
         private void OnDisable()
         {
-            transitionData.transitionShaderMaterial.DOKill();
+            transitionScreen.DOKill();
         }
     }
 }

@@ -12,17 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3fb1a43e01511478e65f58f0fc8e5f, type: 3}
   m_Name: TransitionData
   m_EditorClassIdentifier: Assembly-CSharp::TransitionSystem.TransitionData
-  transitionShaderMaterial: {fileID: 2100000, guid: 66f0b2a6a94870641816da52ec2ccca9, type: 2}
   enterDuration: 1
   enterEase: 1
-  enterTexture: {fileID: 2800000, guid: 605accccbe5d4564a8054e6188959a9b, type: 3}
+  enterDirection: 3
   reRenterDuration: 0.5
   reRenterEase: 1
-  reRenterTexture: {fileID: 2800000, guid: 490e74a4b20b1d741b0d8c2f829e92e5, type: 3}
+  reEnterDirection: 0
   failStartDelay: 1
   failDuration: 0.5
   failEase: 2
-  failTexture: {fileID: 2800000, guid: 490e74a4b20b1d741b0d8c2f829e92e5, type: 3}
+  failDirection: 0
   exitDuration: 1
   exitEase: 1
-  exitTexture: {fileID: 2800000, guid: ec1054fbb3d4f6b4ab62992cdda4d382, type: 3}
+  exitDirection: 0
