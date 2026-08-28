@@ -7,6 +7,8 @@ public class Scoring : MonoBehaviour
 {
     public int score = 0;
     public int lives = 3;
+    public string joke = "Dog's Intern";
+    [SerializeField] private GameOverUI gameOverUI;
     private void OnEnable()
     {
         SectionBehaviour.OnPersonProcessed += ProcessPersonApproved;
@@ -26,7 +28,7 @@ public class Scoring : MonoBehaviour
         {
             score++;
             Debug.Log("O jogador acertou!" + score.ToString());
-            
+
         }
         else
         {
