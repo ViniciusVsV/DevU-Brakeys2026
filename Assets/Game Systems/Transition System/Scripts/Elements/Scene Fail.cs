@@ -14,8 +14,10 @@ namespace TransitionSystem
 
         public void FailScene()
         {
-            Vector2 newPosition = transitionData.GetDirectionVector(transitionData.failDirection) * new Vector2(1920, 1080);
-            transitionScreen.position = newPosition;
+            Vector2 direction = transitionData.GetDirectionVector(transitionData.failDirection);
+
+            Vector2 newPosition = new Vector2(direction.x * 1920f, direction.y * 1080f);
+            transitionScreen.anchoredPosition = newPosition;
 
             transitionScreen.DOAnchorPos(Vector2.zero, transitionData.failDuration)
                 .SetEase(transitionData.failEase)

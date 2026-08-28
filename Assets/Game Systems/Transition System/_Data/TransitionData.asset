@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TransitionData
   m_EditorClassIdentifier: Assembly-CSharp::TransitionSystem.TransitionData
   enterDuration: 1
-  enterEase: 1
+  enterEase: 18
   enterDirection: 3
   reRenterDuration: 0.5
   reRenterEase: 1
@@ -22,6 +22,6 @@ MonoBehaviour:
   failDuration: 0.5
   failEase: 2
   failDirection: 0
-  exitDuration: 1
+  exitDuration: 0.5
   exitEase: 1
-  exitDirection: 0
+  exitDirection: 3

@@ -136,7 +136,7 @@ namespace Sections
 
         private void MovePersonToLine(PersonBehaviour person)
         {
-            Vector2 positionInLine = (Vector2)waitPoint.position + new Vector2(peopleInLine.Count, peopleInLine.Count);
+            Vector2 positionInLine = (Vector2)waitPoint.position + new Vector2(peopleInLine.Count, peopleInLine.Count * 0.1f);
 
             person.Move(positionInLine, () => { });
         }
@@ -159,7 +159,7 @@ namespace Sections
 
             for (int i = 0; i < peopleInLine.Count; i++)
             {
-                Vector2 positionInLine = (Vector2)waitPoint.position + new Vector2(i, i);
+                Vector2 positionInLine = (Vector2)waitPoint.position + new Vector2(i, i * 0.1f);
                 peopleInLine[i].Move(positionInLine, () => { });
 
                 yield return new WaitForSeconds(sectionData.lineReorderDelay);

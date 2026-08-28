@@ -13,8 +13,10 @@ namespace TransitionSystem
 
         public void ExitScene(string nextSceneName)
         {
-            Vector2 newPosition = transitionData.GetDirectionVector(transitionData.exitDirection) * new Vector2(1920, 1080);
-            transitionScreen.position = newPosition;
+            Vector2 direction = transitionData.GetDirectionVector(transitionData.exitDirection);
+
+            Vector2 newPosition = new Vector2(direction.x * 1920f, direction.y * 1080f);
+            transitionScreen.anchoredPosition = newPosition;
 
             transitionScreen.DOAnchorPos(Vector2.zero, transitionData.exitDuration)
                 .SetEase(transitionData.exitEase)

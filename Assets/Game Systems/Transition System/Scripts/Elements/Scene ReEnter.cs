@@ -13,12 +13,15 @@ namespace TransitionSystem
 
         private void Awake()
         {
-            transitionScreen.position = Vector2.zero;
+            transitionScreen.gameObject.SetActive(true);
+            transitionScreen.anchoredPosition = Vector2.zero;
         }
 
         public void ReEnterScene(Action onFinish)
         {
-            Vector2 newPosition = transitionData.GetDirectionVector(transitionData.reEnterDirection) * new Vector2(1920, 1080);
+            Vector2 direction = transitionData.GetDirectionVector(transitionData.reEnterDirection);
+
+            Vector2 newPosition = new Vector2(direction.x * 1920f, direction.y * 1080f);
 
             transitionScreen.DOAnchorPos(newPosition, transitionData.reRenterDuration)
                 .SetEase(transitionData.reRenterEase)
