@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3fb1a43e01511478e65f58f0fc8e5f, type: 3}
   m_Name: TransitionData
   m_EditorClassIdentifier: Assembly-CSharp::TransitionSystem.TransitionData
+  initialDelay: 1
   enterDuration: 1
   enterEase: 18
   enterDirection: 3
-  reRenterDuration: 0.5
-  reRenterEase: 1
-  reEnterDirection: 0
+  reRenterDuration: 1
+  reRenterEase: 18
+  reEnterDirection: 3
   failStartDelay: 1
   failDuration: 0.5
   failEase: 2
   failDirection: 0
   exitDuration: 0.5
   exitEase: 1
-  exitDirection: 3
+  exitDirection: 2

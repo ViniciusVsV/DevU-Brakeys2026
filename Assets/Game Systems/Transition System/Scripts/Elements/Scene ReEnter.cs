@@ -26,6 +26,7 @@ namespace TransitionSystem
             transitionScreen.DOAnchorPos(newPosition, transitionData.reRenterDuration)
                 .SetEase(transitionData.reRenterEase)
                 .SetUpdate(true)
+                .SetDelay(transitionData.initialDelay)
                 .OnComplete(() =>
                 {
                     onFinish?.Invoke();

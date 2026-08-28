@@ -19,6 +19,7 @@ namespace Sections
         [SerializeField] private SectionBehaviour nextSection;
         [SerializeField] private Transform waitPoint;
         [SerializeField] private Transform activePoint;
+        [SerializeField] private Transform dialoguePoint;
         public CinemachineCamera sectionCamera;
         public string sectionRules;
 
@@ -131,7 +132,7 @@ namespace Sections
             //Chama o minigame vinculado à seção
             minigamePlayable?.PlayMinigame(activePerson);
 
-            activePerson.Speak();
+            activePerson.Speak(dialoguePoint);
         }
 
         private void MovePersonToLine(PersonBehaviour person)
@@ -164,6 +165,13 @@ namespace Sections
 
                 yield return new WaitForSeconds(sectionData.lineReorderDelay);
             }
+        }
+
+        public int GetPeopleCount()
+        {
+            int count = activePerson != null ? 1 : 0;
+
+            return count + peopleInLine.Count;
         }
     }
 }

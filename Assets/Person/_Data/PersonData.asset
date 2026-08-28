@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
   initialDelay: 5
-  initialSpawnCooldown: 15
-  timeToReachMaxDificulty: 180
-  finalSpawnCooldown: 2
+  initialSpawnCooldown: 20
+  timeToReachMaxDificulty: 240
+  finalSpawnCooldown: 3
   dificultyCurve:
     serializedVersion: 2
     m_Curve:
@@ -42,6 +42,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   movementDuration: 1
   movementEase: 6
+  deathMovementDuration: 2
   possibleSprites:
   - {fileID: 1232779207558332534, guid: 7ad4a2317dd15d246a50cba7b304df97, type: 3}
   drugChance: 0.25
@@ -82,7 +83,7 @@ MonoBehaviour:
   - {fileID: -6060096216228811492, guid: ffbb0a5f37367374aa39b3ce9be289ab, type: 3}
   - {fileID: 2502177104782010740, guid: 9d546e46c48fd354f8dba45c9c096345, type: 3}
   - {fileID: -5224194166715062165, guid: 913d13f0d4971da4e8dd436cf8ebb9dc, type: 3}
-  invalidItemProbability: 0.1
+  invalidItemProbability: 0.05
   minNumberItems: 4
   maxNumberItems: 10
   possibleItems:

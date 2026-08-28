@@ -17,6 +17,7 @@ namespace Sections
 
         [Header("UI Elements")]
         [SerializeField] private TextMeshProUGUI rulesText;
+        [SerializeField] private TextMeshProUGUI lineCounterText;
         [SerializeField] private Animator uiAnimator;
 
         private bool showingRules;
@@ -27,6 +28,11 @@ namespace Sections
 
             currentSection.sectionCamera.Priority = int.MaxValue;
             rulesText.text = currentSection.sectionRules;
+        }
+
+        private void Update()
+        {
+            lineCounterText.text = currentSection.GetPeopleCount().ToString();
         }
 
         private void OnEnable()

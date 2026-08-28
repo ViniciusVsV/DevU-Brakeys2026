@@ -7,6 +7,7 @@ namespace TransitionSystem
     public class TransitionData : ScriptableObject
     {
         [Header("Scene Enter")]
+        public float initialDelay;
         public float enterDuration;
         public Ease enterEase;
         public TransitionDirection enterDirection;

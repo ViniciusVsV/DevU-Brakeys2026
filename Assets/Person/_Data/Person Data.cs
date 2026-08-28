@@ -16,6 +16,7 @@ namespace Person
         [Header("Person Movement")]
         public float movementDuration;
         public Ease movementEase;
+        public float deathMovementDuration;
 
         [Header("Person Building")]
         [Header("Sprites")]

@@ -12,6 +12,7 @@ namespace Background
             mainCamera = CameraManager.Instance.GetCameraTransform();
 
             transform.parent = mainCamera;
+            transform.localPosition = new Vector3(0, 0, 10);
         }
     }
 }

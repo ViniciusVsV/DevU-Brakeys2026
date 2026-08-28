@@ -57,12 +57,12 @@ namespace Person
             Sequence sequence = DOTween.Sequence();
 
             sequence.Append(transform.DOShakePosition(0.3f));
-            sequence.Append(transform.DOMoveY(-100, 1f)).SetEase(Ease.Linear);
+            sequence.Append(transform.DOMoveY(transform.position.y - 20f, personData.deathMovementDuration)).SetEase(Ease.Linear);
 
             sequence.OnComplete(() => Destroy(gameObject));
         }
 
-        public void Speak()
+        public void Speak(Transform dialoguePoint)
         {
             if (line.Length == 0 || hasSpoken || UnityEngine.Random.Range(0f, 1f) > personData.speakingProbability)
                 return;
@@ -70,6 +70,7 @@ namespace Person
             hasSpoken = true;
 
             textUI.transform.parent.SetParent(null);
+            textUI.transform.position = dialoguePoint.position;
 
             StartCoroutine(SpeakRoutine());
         }

@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenU : MonoBehaviour {
+public class MenU : MonoBehaviour
+{
     [SerializeField] private GameObject PainelMainMenU;
     [SerializeField] private GameObject PainelOptions;
-    public void LoadScenes(string Rscene){
-        SceneManager.LoadScene(Rscene);
+
+    public void LoadScenes(string Rscene)
+    {
+        TransitionSystem.TransitionManager.Instance.ExitScene(Rscene);
     }
-    public void InOptions(){
+    public void InOptions()
+    {
         PainelMainMenU.SetActive(false);
         PainelOptions.SetActive(true);
     }
-    public void OffOptions(){
+    public void OffOptions()
+    {
         PainelMainMenU.SetActive(true);
         PainelOptions.SetActive(false);
     }
-    public void Quit() {
+    public void Quit()
+    {
         Debug.Log("bury the light deep with in");
-        Application.Quit();   
-}   }
+        Application.Quit();
+    }
+}
 
 //Eu sei exatamente oque está pensando sobre minha maneira de identar
 //And... i dont care

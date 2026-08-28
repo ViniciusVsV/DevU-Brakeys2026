@@ -18,13 +18,23 @@ namespace Minigames
         [SerializeField] private Transform endPoint;
         private GameObject currentSuitcase;
 
+        private Sequence spawnSequence;
+        private Sequence despawnSequence;
+
         public void PlayMinigame(PersonBehaviour person)
         {
             SpawnSuitcase(person);
         }
         public void StopMinigame()
         {
-            DespawnSuitcase();
+            if (spawnSequence != null && spawnSequence.IsActive())
+            {
+                spawnSequence.timeScale = 2f;
+
+                spawnSequence.OnComplete(() => DespawnSuitcase(currentSuitcase));
+            }
+            else
+                DespawnSuitcase(currentSuitcase);
         }
 
         private void SpawnSuitcase(PersonBehaviour person)
@@ -35,43 +45,41 @@ namespace Minigames
             currentSuitcase.transform.parent = null;
             currentSuitcase.SetActive(true);
 
-            Sequence sequence = DOTween.Sequence();
+            spawnSequence?.Kill();
+            spawnSequence = DOTween.Sequence();
 
-            sequence.Append(currentSuitcase.transform.DOMoveY(startPoint.position.y, minigamesData.suitacseSpawnDuration).SetEase(minigamesData.suitcaseSpawnEase));
+            spawnSequence.Append(currentSuitcase.transform.DOMoveY(startPoint.position.y, minigamesData.suitacseSpawnDuration).SetEase(minigamesData.suitcaseSpawnEase));
 
-            sequence.Append(currentSuitcase.transform.DOMoveX(xRayPoint.position.x, Random.Range(minigamesData.minSuitcaseMoveDuration, minigamesData.maxSuitcaseMoveDuration))
+            spawnSequence.Append(currentSuitcase.transform.DOMoveX(xRayPoint.position.x, Random.Range(minigamesData.minSuitcaseMoveDuration, minigamesData.maxSuitcaseMoveDuration))
                 .SetEase(Ease.Linear));
         }
 
-        private void DespawnSuitcase()
+        private void DespawnSuitcase(GameObject suitcase)
         {
-            currentSuitcase.transform.DOKill();
-            GameObject lastSuitcase = currentSuitcase;
-
-            Sequence sequence = DOTween.Sequence();
+            despawnSequence = DOTween.Sequence();
 
             // Move a mala até o final da esteira
-            sequence.Append(
-                lastSuitcase.transform
+            despawnSequence.Append(
+                suitcase.transform
                     .DOMoveX(endPoint.position.x, minigamesData.suitcaseEndDuration)
                     .SetEase(minigamesData.suitcaseEndEase)
             );
 
             // Faz a mala cair para baixo
-            sequence.Append(
-                lastSuitcase.transform
-                    .DOMoveY(lastSuitcase.transform.position.y - 30f, 1f)
+            despawnSequence.Append(
+                suitcase.transform
+                    .DOMoveY(suitcase.transform.position.y - 30f, 1f)
                     .SetEase(Ease.InQuad)
             );
 
             // Rotaciona enquanto cai
-            sequence.Join(
-                lastSuitcase.transform
+            despawnSequence.Join(
+                suitcase.transform
                     .DORotate(new Vector3(0, 0, 180f), 1f, RotateMode.LocalAxisAdd)
                     .SetEase(Ease.InQuad)
             );
 
-            sequence.OnComplete(() => Destroy(lastSuitcase));
+            despawnSequence.OnComplete(() => Destroy(suitcase));
         }
     }
 }
