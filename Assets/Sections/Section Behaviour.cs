@@ -51,6 +51,12 @@ namespace Sections
         public void ReceivePerson(PersonBehaviour newPerson)
         {
             //Recebe uma nova pessoa na seção
+            if (isEndSection)
+            {
+                StartCoroutine(MovePersonToActivePoint(newPerson));
+                return;
+            }
+
             if (activePerson != null)
             {
                 MovePersonToLine(newPerson);
@@ -103,13 +109,16 @@ namespace Sections
             StartCoroutine(ReorderPeople());
         }
 
-        private IEnumerator MovePersonToActivePoint()
+        private IEnumerator MovePersonToActivePoint(PersonBehaviour usedPerson = null)
         {
+            if (usedPerson == null)
+                usedPerson = activePerson;
+
             isBusy = true;
 
             bool finished = false;
 
-            activePerson.Move(activePoint.position, () => { finished = true; });
+            usedPerson.Move(activePoint.position, () => { finished = true; });
 
             yield return new WaitUntil(() => finished);
 
@@ -123,18 +132,16 @@ namespace Sections
 
             if (isEndSection)
             {
-                PersonBehaviour personCopy = activePerson;
+                PersonBehaviour personCopy = usedPerson;
                 OnPersonProcessed?.Invoke(personCopy, true);
 
-                activePerson.Die();
-
-                yield break; ;
+                usedPerson.Die();
             }
 
             //Chama o minigame vinculado à seção
-            minigamePlayable?.PlayMinigame(activePerson);
+            minigamePlayable?.PlayMinigame(usedPerson);
 
-            activePerson.Speak(dialoguePoint, false);
+            usedPerson.Speak(dialoguePoint, false);
         }
 
         private void MovePersonToLine(PersonBehaviour person)
