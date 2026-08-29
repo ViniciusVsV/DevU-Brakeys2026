@@ -1,14 +1,33 @@
 using UnityEngine;
 using Person;
 using Sections;
+using Unity.Cinemachine;
+using System;
 
 
 public class Scoring : MonoBehaviour
 {
+    public static Scoring Instance;
     public int score = 0;
     public int lives = 3;
     public string joke = "Dog's Intern";
-    [SerializeField] private GameOverUI gameOverUI;
+    public static event Action<CinemachineCamera> OnGameDefeat;
+    [SerializeField] private CinemachineCamera cinemachineCamera;
+    // [SerializeField] private GameOverUI gameOverUI;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void OnEnable()
     {
         SectionBehaviour.OnPersonProcessed += ProcessPersonApproved;
@@ -21,14 +40,15 @@ public class Scoring : MonoBehaviour
 
     public void ProcessPersonApproved(PersonBehaviour person, bool isApproved)
     {
+        Debug.Log(person.name + " foi " + (isApproved ? "aprovado" : "reprovado") + " e tinha drogas? " + (person.isInvalid ? "Sim" : "Não"));
+
         //1 e 0 ou 0 e 1
         //se isApproved for true, a pessoa foi aprovada, se for false, a pessoa foi reprovada
         //O jogador acertou
         if (person.isInvalid != isApproved)
         {
             score++;
-            Debug.Log("O jogador acertou!" + score.ToString());
-
+            Debug.Log("O jogador acertou! " + score.ToString());
         }
         else
         {
@@ -52,7 +72,8 @@ public class Scoring : MonoBehaviour
     public void ProcessGameOver()
     {
         Debug.Log("Game Over! Sua pontuação final foi: " + score.ToString());
-        gameOverUI.ShowGameOver(score, joke);
+        // gameOverUI.ShowGameOver(score, joke);
+        OnGameDefeat?.Invoke(cinemachineCamera);
     }
 
     public void ResetScore()

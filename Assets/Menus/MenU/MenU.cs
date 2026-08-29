@@ -8,6 +8,11 @@ public class MenU : MonoBehaviour
     [SerializeField] private GameObject PainelMainMenU;
     [SerializeField] private GameObject PainelOptions;
 
+    public void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void LoadScenes(string Rscene)
     {
         TransitionSystem.TransitionManager.Instance.ExitScene(Rscene);

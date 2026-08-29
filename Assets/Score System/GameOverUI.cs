@@ -3,27 +3,47 @@ using TMPro;
 
 public class GameOverUI : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI jokeText;
+    [SerializeField] private TextMeshProUGUI highscoreEntryConfirm;
     [SerializeField] private TMP_InputField nameInput;
     [SerializeField] private HighscoreTable highscoreTable;
 
     private int finalScore;
     private string finalJoke;
-    
+
     private void Start()
     {
-        gameOverPanel.SetActive(false);
-    }
 
-    public void ShowGameOver(int score, string joke)
-    {
-        finalScore = score;
-        finalJoke = joke;
+        finalScore = Scoring.Instance.score;
+        finalJoke = Scoring.Instance.joke;
 
-        gameOverPanel.SetActive(true);
+        scoreText.text = "Score: " + finalScore.ToString();
+        jokeText.text = "Your rank is: " + finalJoke;
 
-        nameInput.text = "";
-        nameInput.ActivateInputField();
+        int amount = highscoreTable.GetHighscoreCount();
+        if (amount < 10)
+        {
+            //Tem espaço para adicionar a pontuação 
+            highscoreEntryConfirm.text = "You can enter the highscore table! Enter your name (3 letters):";
+        }
+        else
+        {
+            //Não tem espaço para adicionar a pontuação
+            //Verifica se a pontuação do jogador é maior que a menor pontuação da tabela
+            bool canEnter = highscoreTable.IsScoreHighEnough(finalScore);
+            if (canEnter)
+            {
+                //A pontuação do jogador é maior que a menor pontuação da tabela, então ele pode entrar na tabela
+                highscoreEntryConfirm.text = "You can enter the highscore table! Enter your name (3 letters):";
+            }
+            else
+            {
+                //A pontuação do jogador não é maior que a menor pontuação da tabela, então ele não pode entrar na tabela
+                highscoreEntryConfirm.text = "You cannot enter the highscore table. Try again!";
+                nameInput.interactable = false;
+            }
+        }
     }
 
     public void SaveScore()
@@ -41,7 +61,5 @@ public class GameOverUI : MonoBehaviour
             playerName,
             finalJoke
         );
-
-        gameOverPanel.SetActive(false);
     }
 }

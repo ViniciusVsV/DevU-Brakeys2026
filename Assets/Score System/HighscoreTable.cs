@@ -100,28 +100,63 @@ public class HighscoreTable : MonoBehaviour
         if (highscores == null)
         {
             highscores = new Highscores();
-            highscores.highscoreEntryList = new List<HighscoreEntry>();
         }
-        else if (highscores.highscoreEntryList == null)
+
+        if (highscores.highscoreEntryList == null)
         {
             highscores.highscoreEntryList = new List<HighscoreEntry>();
-            if (highscores.highscoreEntryList.Count > 10)
-            {
-                highscores.highscoreEntryList.RemoveRange(
-                    10,
-                    highscores.highscoreEntryList.Count - 10
-                );
-            }
-
-            highscores.highscoreEntryList.Add(highscoreEntry);
-
-            string json = JsonUtility.ToJson(highscores);
-            PlayerPrefs.SetString("highscoreTable", json);
-            PlayerPrefs.Save();
         }
+
+        highscores.highscoreEntryList.Add(highscoreEntry);
+
+        // Ordena do maior para o menor
+        highscores.highscoreEntryList.Sort(
+            (a, b) => b.score.CompareTo(a.score)
+        );
+
+        // Mantém apenas os 10 melhores
+        if (highscores.highscoreEntryList.Count > 10)
+        {
+            highscores.highscoreEntryList.RemoveRange(
+                10,
+                highscores.highscoreEntryList.Count - 10
+            );
+        }
+
+        string json = JsonUtility.ToJson(highscores);
+
+        PlayerPrefs.SetString("highscoreTable", json);
+        PlayerPrefs.Save();
     }
 
-    
+    public int GetHighscoreCount()
+    {
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+        if (highscores == null || highscores.highscoreEntryList == null)
+            return 0;
+
+        return highscores.highscoreEntryList.Count;
+    }
+
+    public bool IsScoreHighEnough(int score)
+    {
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+        if (highscores == null || highscores.highscoreEntryList == null)
+            return true;
+
+        // Se tiver menos de 10 entradas, qualquer nova entrada entra na tabela
+        if (highscores.highscoreEntryList.Count < 10)
+            return true;
+
+        // Como a lista está ordenada do maior para o menor,
+        // a última entrada é a menor pontuação do Top 10.
+        return score > highscores.highscoreEntryList[9].score;
+    }
+
     private class Highscores
     {
         public List<HighscoreEntry> highscoreEntryList;
@@ -137,3 +172,6 @@ public class HighscoreTable : MonoBehaviour
     }
 
 }
+
+
+
