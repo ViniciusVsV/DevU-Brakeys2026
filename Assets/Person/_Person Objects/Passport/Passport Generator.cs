@@ -21,8 +21,8 @@ namespace PersonObjects
             PassportBehaviour referencePassport = Instantiate(basePassport, owner.transform);
             PassportBehaviour carriedPassport = Instantiate(basePassport, owner.transform);
 
-            referencePassport.SetPhoto(owner.GetSprite());
-            carriedPassport.SetPhoto(owner.GetSprite());
+            referencePassport.SetPhoto(owner.GetSprite(), owner.GetPhotoPosition());
+            carriedPassport.SetPhoto(owner.GetSprite(), owner.GetPhotoPosition());
 
             int nameIndex = personData.GetRandomNameIndex();
             int countryIndex = personData.GetRandomCountryIndex();
@@ -32,6 +32,7 @@ namespace PersonObjects
             referencePassport.SetName(personData.possibleNames[nameIndex]);
             referencePassport.SetCountry(personData.possibleCountries[countryIndex]);
             referencePassport.SetGender(personData.possibleGenders[genderIndex]);
+            referencePassport.MakeVisibleInsideMask();
 
             //Segundo, faz uma rolagem para verificar se o segundo passaporte será inválido
             float invalidRoll = Random.Range(0f, 1f);
@@ -41,9 +42,9 @@ namespace PersonObjects
             {
                 carriedPassport.CopyValues(referencePassport);
 
-                List<int> availableFields = new List<int> { 0, 1, 2 }; //0=nome, 1=país, 2=gênero
+                List<int> availableFields = new List<int> { 0, 1, 2, 3 }; //0=nome, 1=país, 2=gênero, 3=foto
 
-                int errorCount = Random.Range(1, 4);
+                int errorCount = Random.Range(1, 5);
 
                 for (int i = 0; i < availableFields.Count; i++)
                 {
@@ -63,6 +64,13 @@ namespace PersonObjects
                             break;
                         case 2:
                             carriedPassport.SetGender(personData.possibleInvalidGenders[genderIndex]);
+                            break;
+                        case 3:
+                            Debug.Log("FOTO VEIO ERRADA!");
+                            var (sprite, position) = owner.GetRandomSprite();
+                            Debug.Log("Sprite é: " + sprite.name);
+                            Debug.Log("Posição é: " + position);
+                            carriedPassport.SetPhoto(sprite, position);
                             break;
                     }
                 }

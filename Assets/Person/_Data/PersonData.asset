@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
   initialDelay: 3
-  initialSpawnCooldown: 18
+  initialSpawnCooldown: 5
   timeToReachMaxDificulty: 260
-  finalSpawnCooldown: 4
+  finalSpawnCooldown: 5
   dificultyCurve:
     serializedVersion: 2
     m_Curve:
@@ -86,6 +86,13 @@ MonoBehaviour:
   - {fileID: -6295748747876208728, guid: b38ad3f2593655b4e81d9f921297fe31, type: 3}
   - {fileID: 5738452619909991832, guid: 0f9a9c7eb9cbaa240a88c385df143463, type: 3}
   - {fileID: -4110364812310982907, guid: 92d2c75225d50804a917208016894f2e, type: 3}
+  photosPositionsInPassport:
+  - {x: 0.1, y: -1.97}
+  - {x: 0.47, y: -2.27}
+  - {x: -0.37, y: -2.02}
+  - {x: 0.29, y: -2.44}
+  - {x: 0.07, y: -2.29}
+  - {x: 0.2, y: -2.37}
   drugChance: 0.25
   invalidPassportProbability: 0.3
   possibleNames:

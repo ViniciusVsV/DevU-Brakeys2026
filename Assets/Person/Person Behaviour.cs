@@ -16,6 +16,7 @@ namespace Person
 
         private SpriteRenderer sr;
         private Sprite sprite;
+        private int spriteIndex;
 
         private GameObject carriedPassport;
         private GameObject referencePassport;
@@ -35,8 +36,9 @@ namespace Person
         {
             sr = GetComponent<SpriteRenderer>();
 
-            sprite = personData.GetRandomSprite();
-            sr.sprite = sprite;
+            spriteIndex = personData.GetRandomSpriteIndex();
+            sr.sprite = personData.possibleSprites[spriteIndex];
+            sprite = sr.sprite;
 
             hasDrugs = UnityEngine.Random.Range(0f, 1f) < personData.drugChance;
             isInvalid = hasDrugs;
@@ -128,6 +130,22 @@ namespace Person
         public void SetSuitcase(GameObject suitcase) { this.suitcase = suitcase; }
 
         public Sprite GetSprite() { return sprite; }
+        public (Sprite, Vector2) GetRandomSprite()
+        {
+            Sprite randomSprite;
+            Vector2 photoPosition;
+
+            do
+            {
+                int index = personData.GetRandomSpriteIndex();
+
+                randomSprite = personData.possibleSprites[index];
+                photoPosition = personData.photosPositionsInPassport[index];
+            } while (randomSprite == sprite);
+
+            return (randomSprite, photoPosition);
+        }
+        public Vector2 GetPhotoPosition() { return personData.photosPositionsInPassport[spriteIndex]; }
         public GameObject GetCarriedPassport() { return carriedPassport; }
         public GameObject GetReferencePassport() { return referencePassport; }
         public GameObject GetSuitcase() { return suitcase; }

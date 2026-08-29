@@ -37,12 +37,13 @@ namespace Person
         [Header("Person Building")]
         [Header("Sprites")]
         public Sprite[] possibleSprites;
+        public Vector2[] photosPositionsInPassport;
 
-        public Sprite GetRandomSprite() { return possibleSprites[Random.Range(0, possibleSprites.Length)]; }
+        public int GetRandomSpriteIndex() { return Random.Range(0, possibleSprites.Length); }
 
         [Header("Drugs")]
         [Range(0, 1)] public float drugChance;
-        
+
         [Header("Passport Generation")]
         [Range(0, 1)] public float invalidPassportProbability;
         public string[] possibleNames;
