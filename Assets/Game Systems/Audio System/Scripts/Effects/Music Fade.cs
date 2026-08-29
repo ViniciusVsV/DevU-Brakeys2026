@@ -11,7 +11,7 @@ namespace AudioSystem
         public void ApplyFadeIn()
         {
             Debug.Log("FADE IN!");
-            musicSource.DOFade(1f, audioData.fadeInDuration).SetEase(audioData.fadeInEase)
+            musicSource.DOFade(0.4f, audioData.fadeInDuration).SetEase(audioData.fadeInEase)
                 .SetUpdate(true);
         }
 

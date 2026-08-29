@@ -14,5 +14,6 @@ namespace GameEffects
         public Ease timeSlowEase;
         public float sectionFocusDuration;
         public AudioClip defeatSFX;
+        public float threeErrorsDelay;
     }
 }

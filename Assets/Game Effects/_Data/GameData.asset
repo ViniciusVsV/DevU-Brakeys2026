@@ -17,3 +17,4 @@ MonoBehaviour:
   timeSlowEase: 6
   sectionFocusDuration: 2
   defeatSFX: {fileID: 8300000, guid: 3115afc4de754e64eb2282aac3c4bebd, type: 3}
+  threeErrorsDelay: 1

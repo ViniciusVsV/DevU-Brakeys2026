@@ -22,6 +22,9 @@ namespace Sections
         [SerializeField] private TextMeshProUGUI lineCounterText;
         [SerializeField] private Animator uiAnimator;
 
+        [Header("Error Indicators")]
+        [SerializeField] private GameObject[] errorIndicators;
+
         private bool showingRules;
 
         private void Start()
@@ -88,6 +91,14 @@ namespace Sections
         public void DisableUI(CinemachineCamera _)
         {
             uiAnimator.SetTrigger("Hide");
+        }
+
+        public void UpdateErrorIndicators(int currentLives)
+        {
+            int amount = Mathf.Clamp(3 - currentLives, 0, 3);
+
+            for (int i = 0; i < amount; i++)
+                errorIndicators[i].SetActive(true);
         }
     }
 }

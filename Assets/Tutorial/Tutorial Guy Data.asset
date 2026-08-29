@@ -66,7 +66,7 @@ MonoBehaviour:
   - You made a mistake!
   - Ouch...
   possibleSprites:
-  - {fileID: -6295748747876208728, guid: b38ad3f2593655b4e81d9f921297fe31, type: 3}
+  - {fileID: 2956259716713980860, guid: d295ab90c2b2e5942b998017f2acd15e, type: 3}
   drugChance: 0.25
   invalidPassportProbability: 0.2
   possibleNames:

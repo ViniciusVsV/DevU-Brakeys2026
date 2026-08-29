@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/Logos Scene.unity
     guid: 21d83c81f3041df49927c39f6bdb83f9
   - enabled: 1
-    path: Assets/_Scenes/Main Menu.unity
-    guid: 6bdedb5a84232df4f9f91708c0f1ef1c
-  - enabled: 1
     path: Assets/_Scenes/Tutorial.unity
     guid: a5535ff839c76f143af7b2a68af19d49
   - enabled: 1

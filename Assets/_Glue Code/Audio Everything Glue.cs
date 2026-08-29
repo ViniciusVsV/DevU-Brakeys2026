@@ -20,6 +20,11 @@ public class AudioEverythingGlue : MonoBehaviour
         GameEffects.StartEffects.OnMusicPlay += PlayMusic;
         GameEffects.StartEffects.OnMusicFade += FadeMusic;
         GameEffects.DefeatEffects.OnMusicFade += FadeMusic;
+
+        Scoring.OnSoundPlay += PlaySFX;
+
+        ScoreScreenEffects.StartEffects.OnMusicPlay += PlayMusic;
+        ScoreScreenEffects.StartEffects.OnMusicFade += FadeMusic;
     }
     private void OnDisable()
     {
@@ -37,6 +42,11 @@ public class AudioEverythingGlue : MonoBehaviour
         GameEffects.StartEffects.OnMusicPlay -= PlayMusic;
         GameEffects.StartEffects.OnMusicFade -= FadeMusic;
         GameEffects.DefeatEffects.OnMusicFade -= FadeMusic;
+
+        Scoring.OnSoundPlay -= PlaySFX;
+
+        ScoreScreenEffects.StartEffects.OnMusicPlay -= PlayMusic;
+        ScoreScreenEffects.StartEffects.OnMusicFade -= FadeMusic;
     }
 
     public void PlayMusic(AudioClip music)

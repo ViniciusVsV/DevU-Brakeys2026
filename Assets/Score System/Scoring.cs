@@ -4,16 +4,21 @@ using Sections;
 using Unity.Cinemachine;
 using System;
 
-
 public class Scoring : MonoBehaviour
 {
     public static Scoring Instance;
+
     public int score = 0;
     public int lives = 3;
     public string joke = "Dog's Intern";
-    public static event Action<CinemachineCamera> OnGameDefeat;
-    [SerializeField] private CinemachineCamera cinemachineCamera;
-    // [SerializeField] private GameOverUI gameOverUI;
+
+    public static event Action<AudioClip, AudioSource> OnSoundPlay;
+    public static event Action<int> OnProcessMistake;
+    public static event Action OnGameDefeat;
+
+    private bool hasDied;
+
+    [SerializeField] private AudioClip errorSFX;
 
     private void Awake()
     {
@@ -30,21 +35,20 @@ public class Scoring : MonoBehaviour
 
     private void OnEnable()
     {
-        SectionBehaviour.OnPersonProcessed += ProcessPersonApproved;
+        SectionBehaviour.OnPersonProcessed += ProcessPerson;
     }
-
     private void OnDisable()
     {
-        SectionBehaviour.OnPersonProcessed -= ProcessPersonApproved;
+        SectionBehaviour.OnPersonProcessed -= ProcessPerson;
     }
 
-    public void ProcessPersonApproved(PersonBehaviour person, bool isApproved)
+    public void ProcessPerson(PersonBehaviour person, bool isApproved)
     {
+        if (hasDied)
+            return;
+
         Debug.Log(person.name + " foi " + (isApproved ? "aprovado" : "reprovado") + " e tinha drogas? " + (person.isInvalid ? "Sim" : "Não"));
 
-        //1 e 0 ou 0 e 1
-        //se isApproved for true, a pessoa foi aprovada, se for false, a pessoa foi reprovada
-        //O jogador acertou
         if (person.isInvalid != isApproved)
         {
             score++;
@@ -52,28 +56,19 @@ public class Scoring : MonoBehaviour
         }
         else
         {
-            // 1 e 1 ou 0 e 0
-            //A pessoa foi aprovada e tinha drogas, ou a pessoa não foi aprovada e não tinha drogas
-            //O jogador errou
             lives--;
+
+            OnProcessMistake?.Invoke(lives);
+
             if (lives <= 0)
             {
-                Debug.Log("Game Over!");
-                ProcessGameOver();
+                OnGameDefeat?.Invoke();
+                hasDied = true;
+                return;
+            }
 
-            }
-            else
-            {
-                Debug.Log("O jogador errou!" + lives.ToString());
-            }
+            OnSoundPlay?.Invoke(errorSFX, null);
         }
-    }
-
-    public void ProcessGameOver()
-    {
-        Debug.Log("Game Over! Sua pontuação final foi: " + score.ToString());
-        // gameOverUI.ShowGameOver(score, joke);
-        OnGameDefeat?.Invoke(cinemachineCamera);
     }
 
     public void ResetScore()
@@ -95,5 +90,4 @@ public class Scoring : MonoBehaviour
         else
             return "Desempregado";
     }
-
 }

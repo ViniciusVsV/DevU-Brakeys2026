@@ -1,7 +1,7 @@
 using CameraSystem;
 using UnityEngine;
 
-public class ScreenCameraGlue : MonoBehaviour
+public class SectionCameraGlue : MonoBehaviour
 {
     private CameraManager cameraManager;
 

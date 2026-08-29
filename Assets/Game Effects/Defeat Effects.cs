@@ -23,15 +23,40 @@ namespace GameEffects
         public static event Action<bool> OnMusicFade;
         public static event Action<string> OnSceneExit;
 
-        public void ApplyEffects(CinemachineCamera camera)
+        public void ApplyThreeErrorsEffects()
+        {
+            StartCoroutine(ThreeErrorsRoutine());
+        }
+        private IEnumerator ThreeErrorsRoutine()
+        {
+            //Dá slow no jogo e fade out na música, igual o outro, ams não foca na seção do passaporte
+            OnSoundPlay?.Invoke(gameData.defeatSFX, null);
+            OnMusicFade?.Invoke(true);
+
+            //Usa dotwwen para para o tempo seguindo uma duração e Ease
+            yield return DOTween.To(
+                () => Time.timeScale,
+                x => Time.timeScale = x,
+                0,
+                gameData.timeSlowDuration
+            )
+            .SetEase(gameData.timeSlowEase)
+            .SetUpdate(true)
+            .WaitForCompletion();
+
+            yield return new WaitForSecondsRealtime(gameData.threeErrorsDelay);
+
+            OnSceneExit?.Invoke(finalSceneName);
+        }
+
+        public void ApplyLineFullEffects(CinemachineCamera camera)
         {
             if (coroutine != null)
                 return;
 
-            coroutine = StartCoroutine(EffectsRoutine(camera));
+            coroutine = StartCoroutine(LineFullRoutine(camera));
         }
-
-        private IEnumerator EffectsRoutine(CinemachineCamera camera)
+        private IEnumerator LineFullRoutine(CinemachineCamera camera)
         {
             OnSoundPlay?.Invoke(gameData.defeatSFX, null);
             OnMusicFade?.Invoke(true);
