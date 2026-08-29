@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using DG.Tweening;
-using PersonObjects;
 using TMPro;
 using UnityEngine;
 
@@ -23,8 +22,10 @@ namespace Person
 
         [Header("Dialogue Line")]
         [SerializeField] private TextMeshProUGUI textUI;
-        private string line;
-        private bool hasSpoken;
+        private string introductionLine;
+        private string deathLine;
+        private bool hasSpokenIntroduction;
+        private Coroutine speakRoutine;
 
         private bool hasDrugs;
         public bool isInvalid;
@@ -39,10 +40,10 @@ namespace Person
             hasDrugs = UnityEngine.Random.Range(0f, 1f) < personData.drugChance;
             isInvalid = hasDrugs;
 
-            line = personData.GetRandomLine();
+            introductionLine = personData.GetRandomIntroductionLine();
+            deathLine = personData.GetRandomDeathLine();
 
             textUI.maxVisibleCharacters = 0;
-            textUI.text = line;
         }
 
         public void Move(Vector2 destination, Action onFinish)
@@ -57,23 +58,46 @@ namespace Person
             Sequence sequence = DOTween.Sequence();
 
             sequence.Append(transform.DOShakePosition(0.3f));
-            sequence.Append(transform.DOMoveY(-100, 1f)).SetEase(Ease.Linear);
+            sequence.Append(transform.DOMoveY(transform.position.y - 20f, personData.deathMovementDuration)).SetEase(Ease.Linear);
 
-            sequence.OnComplete(() => Destroy(gameObject));
+            sequence.OnComplete(() =>
+            {
+                Destroy(gameObject);
+            });
         }
 
-        public void Speak()
+        public void Speak(Transform dialoguePoint, bool isDeathLine)
         {
-            if (line.Length == 0 || hasSpoken || UnityEngine.Random.Range(0f, 1f) > personData.speakingProbability)
+            //Se já falou a fala introdutória e é uma fala introdutória
+            if (hasSpokenIntroduction && !isDeathLine)
                 return;
 
-            hasSpoken = true;
+            //Rola as probabilidades de falar cada tipo de fala
+            float randomRoll = UnityEngine.Random.Range(0f, 1f);
+
+            if (isDeathLine && randomRoll > personData.deathSpeakingProbability)
+                return;
+
+            if (!isDeathLine && randomRoll > personData.introductionSpeakingProbability)
+                return;
+
+            hasSpokenIntroduction = !isDeathLine;
 
             textUI.transform.parent.SetParent(null);
+            textUI.transform.position = dialoguePoint.position;
 
-            StartCoroutine(SpeakRoutine());
+            textUI.text = isDeathLine ? deathLine : introductionLine;
+
+            textUI.maxVisibleCharacters = 0;
+            textUI.DOKill();
+            textUI.DOFade(1f, 0f);
+
+            if (speakRoutine != null)
+                StopCoroutine(speakRoutine);
+
+            speakRoutine = StartCoroutine(SpeakRoutine(isDeathLine));
         }
-        private IEnumerator SpeakRoutine()
+        private IEnumerator SpeakRoutine(bool isDeathLine)
         {
             textUI.ForceMeshUpdate();
 
@@ -89,8 +113,11 @@ namespace Person
             textUI.DOFade(0f, personData.dialogueFadeDuration).SetDelay(personData.dialogueFadeDelay)
                 .OnComplete(() =>
                 {
-                    Destroy(textUI.transform.parent.gameObject);
+                    if (isDeathLine)
+                        Destroy(textUI.transform.parent.gameObject);
                 });
+
+            speakRoutine = null;
         }
 
         public void SetReferencePassport(GameObject passport) { referencePassport = passport; }

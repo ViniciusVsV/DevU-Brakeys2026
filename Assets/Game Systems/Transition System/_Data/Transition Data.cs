@@ -6,27 +6,47 @@ namespace TransitionSystem
     [CreateAssetMenu(fileName = "TransitionData", menuName = "Scriptable Objects/TransitionData")]
     public class TransitionData : ScriptableObject
     {
-        public Material transitionShaderMaterial;
-
         [Header("Scene Enter")]
+        public float initialDelay;
         public float enterDuration;
         public Ease enterEase;
-        public Texture2D enterTexture;
+        public TransitionDirection enterDirection;
 
         [Header("Scene ReEnter")]
         public float reRenterDuration;
         public Ease reRenterEase;
-        public Texture2D reRenterTexture;
+        public TransitionDirection reEnterDirection;
 
         [Header("Scene Fail")]
         public float failStartDelay;
         public float failDuration;
         public Ease failEase;
-        public Texture2D failTexture;
+        public TransitionDirection failDirection;
 
         [Header("Scene Exit")]
         public float exitDuration;
         public Ease exitEase;
-        public Texture2D exitTexture;
+        public TransitionDirection exitDirection;
+
+        public Vector2 GetDirectionVector(TransitionDirection transitionDirection)
+        {
+            return transitionDirection switch
+            {
+                TransitionDirection.Up => Vector3.up,
+                TransitionDirection.Down => Vector3.down,
+                TransitionDirection.Left => Vector3.left,
+                TransitionDirection.Right => Vector3.right,
+
+                _ => Vector3.zero
+            };
+        }
+    }
+
+    public enum TransitionDirection
+    {
+        Up,
+        Down,
+        Left,
+        Right
     }
 }

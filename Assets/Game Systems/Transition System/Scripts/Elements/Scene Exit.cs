@@ -9,24 +9,27 @@ namespace TransitionSystem
     public class SceneExit : MonoBehaviour
     {
         [SerializeField] private TransitionData transitionData;
+        [SerializeField] private RectTransform transitionScreen;
 
         public void ExitScene(string nextSceneName)
         {
-            transitionData.transitionShaderMaterial.SetTexture("_Transition_Texture", transitionData.exitTexture);
+            Vector2 direction = transitionData.GetDirectionVector(transitionData.exitDirection);
 
-            transitionData.transitionShaderMaterial
-                .DOFloat(-1f, "_Progress", transitionData.exitDuration)
+            Vector2 newPosition = new Vector2(direction.x * 1920f, direction.y * 1080f);
+            transitionScreen.anchoredPosition = newPosition;
+
+            transitionScreen.DOAnchorPos(Vector2.zero, transitionData.exitDuration)
                 .SetEase(transitionData.exitEase)
                 .SetUpdate(true)
                 .OnComplete(() =>
-                    {
-                        SceneManager.LoadScene(nextSceneName);
-                    });
+                {
+                    SceneManager.LoadScene(nextSceneName);
+                });
         }
 
         private void OnDisable()
         {
-            transitionData.transitionShaderMaterial.DOKill();
+            transitionScreen.DOKill();
         }
     }
 }

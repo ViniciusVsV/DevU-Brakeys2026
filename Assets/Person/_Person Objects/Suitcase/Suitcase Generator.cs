@@ -15,6 +15,8 @@ namespace PersonObjects
             generatedInvalid = false;
 
             SuitcaseBehaviour suitcase = Instantiate(baseSuitcase, owner.transform);
+            suitcase.SetSprite(personData.GetRandomSuitcaseSprite());
+
             Bounds suitcaseBounds = suitcase.GetBounds(); ;
 
             //Primeiro, randomiza o numero de items

@@ -8,29 +8,33 @@ namespace TransitionSystem
     public class SceneEnter : MonoBehaviour
     {
         [SerializeField] private TransitionData transitionData;
+        [SerializeField] private RectTransform transitionScreen;
 
         private void Awake()
         {
-            transitionData.transitionShaderMaterial.SetFloat("_Progress", -1);
+            transitionScreen.gameObject.SetActive(true);
+            transitionScreen.anchoredPosition = Vector2.zero;
         }
 
         public void EnterScene(Action onFinish)
         {
-            transitionData.transitionShaderMaterial.SetTexture("_Transition_Texture", transitionData.enterTexture);
+            Vector2 direction = transitionData.GetDirectionVector(transitionData.enterDirection);
 
-            transitionData.transitionShaderMaterial
-                .DOFloat(1f, "_Progress", transitionData.enterDuration)
+            Vector2 newPosition = new Vector2(direction.x * 1920f, direction.y * 1080f);
+
+            transitionScreen.DOAnchorPos(newPosition, transitionData.enterDuration)
                 .SetEase(transitionData.enterEase)
                 .SetUpdate(true)
+                .SetDelay(transitionData.initialDelay)
                 .OnComplete(() =>
-                    {
-                        onFinish?.Invoke();
-                    });
+                {
+                    onFinish?.Invoke();
+                });
         }
 
         private void OnDisable()
         {
-            transitionData.transitionShaderMaterial.DOKill();
+            transitionScreen.DOKill();
         }
     }
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
   initialDelay: 5
-  initialSpawnCooldown: 15
-  timeToReachMaxDificulty: 180
-  finalSpawnCooldown: 2
+  initialSpawnCooldown: 20
+  timeToReachMaxDificulty: 240
+  finalSpawnCooldown: 3
   dificultyCurve:
     serializedVersion: 2
     m_Curve:
@@ -42,22 +42,37 @@ MonoBehaviour:
     m_RotationOrder: 4
   movementDuration: 1
   movementEase: 6
-  possibleSprites:
-  - {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  - {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
-  - {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
-  drugChance: 0.25
-  speakingProbability: 0.3
-  possibleLines:
-  - I'm trustworthy...
-  - Nothing to see here! haha..
-  - Hey! Good morning!
+  deathMovementDuration: 2
+  introductionSpeakingProbability: 0.3
+  possibleIntrocutionLines:
+  - Hey!
+  - Nothing to see here... haha
+  - I'm trustworthy!
+  - Just let me pass, will you?
+  - Trust me, i'm clean!
+  - Good morning!
   - Hurry it up.
+  - AAAAHHH I'M LATE
+  - I hate this place
   dialogueTypingDelay: 0.03
   dialogueFadeDelay: 1
   dialogueFadeDuration: 2
+  deathSpeakingProbability: 0.5
+  possibleDeathLines:
+  - HEY!
+  - C'mon, look again...
+  - Bruh
+  - I knew it wouldn't work
+  - You made a mistake!
+  - Ouch...
+  possibleSprites:
+  - {fileID: -6301729747549221970, guid: 53a5381f042dc06449f73659c0e488f5, type: 3}
+  - {fileID: -7496307851198318875, guid: 9dfd2e281ea062041bc10e5a7f233889, type: 3}
+  - {fileID: 1232779207558332534, guid: 7ad4a2317dd15d246a50cba7b304df97, type: 3}
+  - {fileID: -6295748747876208728, guid: b38ad3f2593655b4e81d9f921297fe31, type: 3}
+  - {fileID: 5738452619909991832, guid: 0f9a9c7eb9cbaa240a88c385df143463, type: 3}
+  - {fileID: -4110364812310982907, guid: 92d2c75225d50804a917208016894f2e, type: 3}
+  drugChance: 0.25
   invalidPassportProbability: 0.2
   possibleNames:
   - Penis
@@ -81,7 +96,12 @@ MonoBehaviour:
   possibleInvalidGenders:
   - Alfa
   - Beta
-  invalidItemProbability: 0.1
+  possibleSuitcaseSprites:
+  - {fileID: 4912449958874415820, guid: f8b9ea36d27368f40978a0d4a1010894, type: 3}
+  - {fileID: -6060096216228811492, guid: ffbb0a5f37367374aa39b3ce9be289ab, type: 3}
+  - {fileID: 2502177104782010740, guid: 9d546e46c48fd354f8dba45c9c096345, type: 3}
+  - {fileID: -5224194166715062165, guid: 913d13f0d4971da4e8dd436cf8ebb9dc, type: 3}
+  invalidItemProbability: 0.05
   minNumberItems: 4
   maxNumberItems: 10
   possibleItems:

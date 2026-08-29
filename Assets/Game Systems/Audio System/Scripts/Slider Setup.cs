@@ -20,6 +20,9 @@ namespace AudioSystem
             slider = GetComponent<Slider>();
 
             float value = PlayerPrefs.GetFloat(paramName, 1f);
+
+            Debug.Log("Valor do player PRefs é: " + PlayerPrefs.GetFloat(paramName));
+
             slider.value = value;
         }
 

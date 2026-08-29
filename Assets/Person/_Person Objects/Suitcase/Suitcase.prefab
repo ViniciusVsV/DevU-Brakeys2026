@@ -71,7 +71,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 1
   m_CompositeOrder: 0
-  m_Offset: {x: -2.2997365, y: -0.33906412}
+  m_Offset: {x: -2.7395062, y: -0.1931076}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -81,7 +81,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.79361343, y: 5.481538}
+  m_Size: {x: 0.77162457, y: 5.773451}
   m_EdgeRadius: 0
 --- !u!61 &4857848816310211
 BoxCollider2D:
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 1
   m_CompositeOrder: 0
-  m_Offset: {x: 2.4471555, y: -0.35380554}
+  m_Offset: {x: 2.7220116, y: -0.27040195}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -127,7 +127,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0294838, y: 5.8058605}
+  m_Size: {x: 0.7436342, y: 5.9726677}
   m_EdgeRadius: 0
 --- !u!61 &7201137742557663775
 BoxCollider2D:
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 1
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0073708296, y: 2.7051387}
+  m_Offset: {x: 0.32847524, y: 2.9678602}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -173,7 +173,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.7886686, y: 1.3980322}
+  m_Size: {x: 6.8153796, y: 0.8725891}
   m_EdgeRadius: 0
 --- !u!61 &2836798456676196350
 BoxCollider2D:
@@ -209,7 +209,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 1
   m_CompositeOrder: 0
-  m_Offset: {x: -0.13919926, y: -3.304144}
+  m_Offset: {x: 0.20711935, y: -3.2051954}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -219,7 +219,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.619174, y: 1.0732632}
+  m_Size: {x: 5.3118114, y: 1.2711601}
   m_EdgeRadius: 0
 --- !u!50 &250776775027391841
 Rigidbody2D:
@@ -289,62 +289,62 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 2836798456676196350}
     m_ColliderPaths:
-    - - X: 21703878
-        Y: -27675124
+    - - X: 28630252
+        Y: -25696154
       - X: -24487862
-        Y: -27675124
+        Y: -25696154
       - X: -24487862
         Y: -38407756
-      - X: 21703878
+      - X: 28630252
         Y: -38407756
   - m_Collider: {fileID: 7201137742557663775}
     m_ColliderPaths:
-    - - X: 24017052
+    - - X: 37361652
         Y: 34041548
-      - X: -23869634
+      - X: -30792146
         Y: 34041548
-      - X: -23869634
-        Y: 20061226
-      - X: 24017052
-        Y: 20061226
+      - X: -30792146
+        Y: 25315656
+      - X: 37361652
+        Y: 25315656
   - m_Collider: {fileID: 4857848816310211}
     m_ColliderPaths:
-    - - X: 29618974
-        Y: 25491248
-      - X: 19324136
-        Y: 25491248
-      - X: 19324136
+    - - X: 30938286
+        Y: 27159318
+      - X: 23501944
+        Y: 27159318
+      - X: 23501944
         Y: -32567358
-      - X: 29618974
+      - X: 30938286
         Y: -32567358
   - m_Collider: {fileID: 8965622920936041231}
     m_ColliderPaths:
-    - - X: -19029298
-        Y: 24017048
-      - X: -26965432
-        Y: 24017048
-      - X: -26965432
+    - - X: -23536940
+        Y: 26936178
+      - X: -31253186
+        Y: 26936178
+      - X: -31253186
         Y: -30798330
-      - X: -19029298
+      - X: -23536940
         Y: -30798330
   m_CompositePaths:
     m_Paths:
-    - - {x: 2.1703584, y: -3.8407757}
-      - {x: 2.1704173, y: -3.2567358}
-      - {x: 2.9618974, y: -3.2567065}
-      - {x: 2.961868, y: 2.5491247}
-      - {x: 2.4017053, y: 2.5491543}
-      - {x: 2.401676, y: 3.4041548}
-      - {x: -2.3869634, y: 3.4041257}
-      - {x: -2.386993, y: 2.4017048}
-      - {x: -2.6965432, y: 2.4016757}
-      - {x: -2.6965141, y: -3.079833}
+    - - {x: 2.862996, y: -3.8407757}
+      - {x: 2.8630548, y: -3.2567358}
+      - {x: 3.0938287, y: -3.2567065}
+      - {x: 3.093858, y: 2.5315657}
+      - {x: 3.7361653, y: 2.5315948}
+      - {x: 3.736136, y: 3.4041548}
+      - {x: -3.0792146, y: 3.4041257}
+      - {x: -3.0792441, y: 2.6936178}
+      - {x: -3.1253185, y: 2.6935885}
+      - {x: -3.1252892, y: -3.079833}
       - {x: -2.4487863, y: -3.0798624}
       - {x: -2.448757, y: -3.8407757}
-    - - {x: 1.9324136, y: -2.767483}
-      - {x: -1.9029298, y: -2.767483}
-      - {x: -1.9029005, y: 2.0061226}
-      - {x: 1.9324136, y: 2.0060933}
+    - - {x: 2.3501945, y: -2.569586}
+      - {x: -2.353694, y: -2.569586}
+      - {x: -2.3536646, y: 2.5315657}
+      - {x: 2.3501945, y: 2.5315363}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersonObjects.SuitcaseBehaviour
   suitcaseBounds: {fileID: 1271242299095121174}
+  spriteRenderer: {fileID: 4226144214617946453}
 --- !u!212 &4226144214617946453
 SpriteRenderer:
   serializedVersion: 2
@@ -442,12 +443,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 150248419
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6036706657477484396, guid: 92c928c02c720414d8c4ca68ad8a80a6, type: 3}
-  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  m_Sprite: {fileID: 4912449958874415820, guid: f8b9ea36d27368f40978a0d4a1010894, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -490,15 +491,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.018851519, y: -0.51145935}
+  m_Offset: {x: 0.009766102, y: -0.020825386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4933333, y: 7.4933333}
+    oldSize: {x: 5.35, y: 7.04}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.9302826, y: 5.2312336}
+  m_Size: {x: 4.711664, y: 5.085861}
   m_EdgeRadius: 0

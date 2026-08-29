@@ -16,6 +16,23 @@ namespace Person
         [Header("Person Movement")]
         public float movementDuration;
         public Ease movementEase;
+        public float deathMovementDuration;
+
+        [Header("Person Speaking")]
+        [Header("Introduction Lines")]
+        [Range(0, 1)] public float introductionSpeakingProbability;
+        public string[] possibleIntrocutionLines;
+        public float dialogueTypingDelay;
+        public float dialogueFadeDelay;
+        public float dialogueFadeDuration;
+
+        public string GetRandomIntroductionLine() { return possibleIntrocutionLines[Random.Range(0, possibleIntrocutionLines.Length)]; }
+
+        [Header("Death Lines")]
+        [Range(0, 1)] public float deathSpeakingProbability;
+        public string[] possibleDeathLines;
+
+        public string GetRandomDeathLine() { return possibleDeathLines[Random.Range(0, possibleDeathLines.Length)]; }
 
         [Header("Person Building")]
         [Header("Sprites")]
@@ -25,16 +42,7 @@ namespace Person
 
         [Header("Drugs")]
         [Range(0, 1)] public float drugChance;
-
-        [Header("Dialogue Lines")]
-        [Range(0, 1)] public float speakingProbability;
-        public string[] possibleLines;
-        public float dialogueTypingDelay;
-        public float dialogueFadeDelay;
-        public float dialogueFadeDuration;
-
-        public string GetRandomLine() { return possibleLines[Random.Range(0, possibleLines.Length)]; }
-
+        
         [Header("Passport Generation")]
         [Range(0, 1)] public float invalidPassportProbability;
         public string[] possibleNames;
@@ -49,12 +57,14 @@ namespace Person
         public int GetRandomGenderIndex() { return Random.Range(0, possibleGenders.Length); }
 
         [Header("Suitcase Generation")]
+        public Sprite[] possibleSuitcaseSprites;
         [Range(0, 1)] public float invalidItemProbability;
         public int minNumberItems;
         public int maxNumberItems;
         public GameObject[] possibleItems;
         public GameObject[] possibleInvalidItems;
 
+        public Sprite GetRandomSuitcaseSprite() { return possibleSuitcaseSprites[Random.Range(0, possibleSuitcaseSprites.Length)]; }
         public GameObject GetRandomItem() { return possibleItems[Random.Range(0, possibleItems.Length)]; }
         public GameObject GetRandomInvalidItem() { return possibleInvalidItems[Random.Range(0, possibleInvalidItems.Length)]; }
     }

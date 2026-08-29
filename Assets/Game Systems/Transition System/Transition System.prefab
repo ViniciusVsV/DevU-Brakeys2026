@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Levels.LevelTransitions.LevelExit
   transitionData: {fileID: 11400000, guid: 758af3ec91ff5b246aa33e53287b5a00, type: 2}
+  transitionScreen: {fileID: 124106558806421189}
 --- !u!1 &217337415816515704
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Levels.LevelTransitions.LevelEnter
   transitionData: {fileID: 11400000, guid: 758af3ec91ff5b246aa33e53287b5a00, type: 2}
+  transitionScreen: {fileID: 124106558806421189}
 --- !u!1 &985540424903212091
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,8 +152,8 @@ Canvas:
   m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 769990081
-  m_SortingOrder: -14107
+  m_SortingLayerID: -1528870757
+  m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!114 &6115342852245337495
 MonoBehaviour:
@@ -257,7 +259,6 @@ GameObject:
   - component: {fileID: 124106558806421189}
   - component: {fileID: 845081393646268460}
   - component: {fileID: 1459134247348646745}
-  - component: {fileID: 2673321761428606437}
   m_Layer: 0
   m_Name: Transition Screen
   m_TagString: Untagged
@@ -304,15 +305,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 2100000, guid: 66f0b2a6a94870641816da52ec2ccca9, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Material: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -322,28 +323,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &2673321761428606437
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6770080289349716995}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7351106476582809131
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Levels.LevelTransitions.LevelFail
   transitionData: {fileID: 11400000, guid: 758af3ec91ff5b246aa33e53287b5a00, type: 2}
+  transitionScreen: {fileID: 124106558806421189}
 --- !u!1 &7529439252101503556
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,3 +414,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Levels.LevelTransitions.LevelReEnter
   transitionData: {fileID: 11400000, guid: 758af3ec91ff5b246aa33e53287b5a00, type: 2}
+  transitionScreen: {fileID: 124106558806421189}

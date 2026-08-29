@@ -19,6 +19,7 @@ namespace Sections
         [SerializeField] private SectionBehaviour nextSection;
         [SerializeField] private Transform waitPoint;
         [SerializeField] private Transform activePoint;
+        [SerializeField] private Transform dialoguePoint;
         public CinemachineCamera sectionCamera;
         public string sectionRules;
 
@@ -50,6 +51,12 @@ namespace Sections
         public void ReceivePerson(PersonBehaviour newPerson)
         {
             //Recebe uma nova pessoa na seção
+            if (isEndSection)
+            {
+                StartCoroutine(MovePersonToActivePoint(newPerson));
+                return;
+            }
+
             if (activePerson != null)
             {
                 MovePersonToLine(newPerson);
@@ -95,18 +102,23 @@ namespace Sections
 
             PersonBehaviour personCopy = activePerson;
             OnPersonProcessed?.Invoke(personCopy, false);
+
             activePerson.Die();
+            activePerson.Speak(dialoguePoint, true);    //Chama a possível fala de morte da pessoa
 
             StartCoroutine(ReorderPeople());
         }
 
-        private IEnumerator MovePersonToActivePoint()
+        private IEnumerator MovePersonToActivePoint(PersonBehaviour usedPerson = null)
         {
+            if (usedPerson == null)
+                usedPerson = activePerson;
+
             isBusy = true;
 
             bool finished = false;
 
-            activePerson.Move(activePoint.position, () => { finished = true; });
+            usedPerson.Move(activePoint.position, () => { finished = true; });
 
             yield return new WaitUntil(() => finished);
 
@@ -120,23 +132,21 @@ namespace Sections
 
             if (isEndSection)
             {
-                PersonBehaviour personCopy = activePerson;
+                PersonBehaviour personCopy = usedPerson;
                 OnPersonProcessed?.Invoke(personCopy, true);
 
-                activePerson.Die();
-
-                yield break; ;
+                usedPerson.Die();
             }
 
             //Chama o minigame vinculado à seção
-            minigamePlayable?.PlayMinigame(activePerson);
+            minigamePlayable?.PlayMinigame(usedPerson);
 
-            activePerson.Speak();
+            usedPerson.Speak(dialoguePoint, false);
         }
 
         private void MovePersonToLine(PersonBehaviour person)
         {
-            Vector2 positionInLine = (Vector2)waitPoint.position + new Vector2(peopleInLine.Count, peopleInLine.Count);
+            Vector2 positionInLine = (Vector2)waitPoint.position + new Vector2(peopleInLine.Count, peopleInLine.Count * 0.1f);
 
             person.Move(positionInLine, () => { });
         }
@@ -159,11 +169,18 @@ namespace Sections
 
             for (int i = 0; i < peopleInLine.Count; i++)
             {
-                Vector2 positionInLine = (Vector2)waitPoint.position + new Vector2(i, i);
+                Vector2 positionInLine = (Vector2)waitPoint.position + new Vector2(i, i * 0.1f);
                 peopleInLine[i].Move(positionInLine, () => { });
 
                 yield return new WaitForSeconds(sectionData.lineReorderDelay);
             }
+        }
+
+        public int GetPeopleCount()
+        {
+            int count = activePerson != null ? 1 : 0;
+
+            return count + peopleInLine.Count;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Tutorial
     public class TutorialController : MonoBehaviour
     {
         [SerializeField] private PersonBehaviour tutorialGuyPrefab;
+        [SerializeField] private Transform tutorialGuySpawnPoint;
         [SerializeField] private Transform firstSectionActivePoint;
         [SerializeField] private string gameSceneName;
 
@@ -20,6 +21,7 @@ namespace Tutorial
         [SerializeField] private GameObject sectionsHighlight;
         [SerializeField] private GameObject approveHighlight;
         [SerializeField] private GameObject rulesHighlight;
+        [SerializeField] private GameObject counterHighlight;
         private Tween highlightScreenTween;
 
         private PersonBehaviour tutorialGuy;
@@ -31,14 +33,14 @@ namespace Tutorial
 
         private void Start()
         {
-            tutorialGuy = Instantiate(tutorialGuyPrefab, transform.position, Quaternion.identity);
+            tutorialGuy = Instantiate(tutorialGuyPrefab, tutorialGuySpawnPoint.position, Quaternion.identity);
 
             tutorialGuyDialogue = tutorialGuy.GetComponentInChildren<DialogueObject>();
 
             tutorialGuyDialogue.currentStory.BindExternalFunction("HighlightSectionButtons", () =>
             {
                 sectionsHighlight.SetActive(true);
-                highlightScreenTween = highlightScreen.DOFade(0.6f, 1f);
+                highlightScreenTween = highlightScreen.DOFade(0.8f, 1f);
             });
             tutorialGuyDialogue.currentStory.BindExternalFunction("HighlightApproveButtons", () =>
             {
@@ -51,9 +53,14 @@ namespace Tutorial
                 approveHighlight.SetActive(false);
                 rulesHighlight.SetActive(true);
             });
-            tutorialGuyDialogue.currentStory.BindExternalFunction("DisableHighlights", () =>
+            tutorialGuyDialogue.currentStory.BindExternalFunction("HighlightLineCounter", () =>
             {
                 rulesHighlight.SetActive(false);
+                counterHighlight.SetActive(true);
+            });
+            tutorialGuyDialogue.currentStory.BindExternalFunction("DisableHighlights", () =>
+            {
+                counterHighlight.SetActive(false);
                 highlightScreenTween = highlightScreen.DOFade(0f, 1f);
             });
             tutorialGuyDialogue.currentStory.BindExternalFunction("FinishDialogue", () =>
@@ -69,7 +76,7 @@ namespace Tutorial
 
         private IEnumerator TutorialRoutine()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
 
             bool finished = false;
 
