@@ -287,7 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20984bc2732291e4488278ba1effb22b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonBehaviour
-  personData: {fileID: 11400000, guid: 3eea31b761b8668439534f26949bd6b1, type: 2}
+  personData: {fileID: 11400000, guid: 6513c6c691102174aafc0205c87a6587, type: 2}
+  audioController: {fileID: 0}
   textUI: {fileID: 3280779731247888706}
   isInvalid: 0
 --- !u!212 &1690524986601283790

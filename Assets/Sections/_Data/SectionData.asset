@@ -17,9 +17,7 @@ MonoBehaviour:
   lineReorderDelay: 0.2
   newPersonSpawnedSFXs:
   - {fileID: 8300000, guid: 04fb37233f4eb234d8730e35cbcd6cd3, type: 3}
-  personFinishedCorrectSFX: {fileID: 0}
-  personFinishedErrorSFX: {fileID: 0}
   approvePersonSFX: {fileID: 8300000, guid: ad14fe261bb0ebb458b97d8d877b5fff, type: 3}
   denyPersonSFX: {fileID: 8300000, guid: f258a34c368ea454787e2677ef448e3f, type: 3}
-  sectionsButtonsSFX: {fileID: 0}
+  sectionsButtonsSFX: {fileID: 8300000, guid: cf00197c88304d140bcb11ba09fe807f, type: 3}
   rulesButtonSFX: {fileID: 0}

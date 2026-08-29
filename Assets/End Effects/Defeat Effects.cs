@@ -13,12 +13,21 @@ namespace EndEffects
         //Fica um tempo olhando para a seção cheia
         //Chama a transição para o menu final
         //Desativa a UI
+        //Invoca fade out na música
         [SerializeField] private EndData endData;
         [SerializeField] private string finalSceneName;
 
         private Coroutine coroutine;
 
+        public static event Action<bool> OnGameStart;
+        public static event Action<bool> OnDefeatEffectsStart;
+        public static event Action<AudioClip, AudioSource> OnSoundPlay;
         public static event Action<string> OnDefeatEffectsFinished;
+
+        private void Start()
+        {
+            OnGameStart?.Invoke(false);
+        }
 
         public void ApplyEffects(CinemachineCamera camera)
         {
@@ -30,6 +39,9 @@ namespace EndEffects
 
         private IEnumerator EffectsRoutine(CinemachineCamera camera)
         {
+            OnSoundPlay?.Invoke(endData.defeatSFX, null);
+            OnDefeatEffectsStart?.Invoke(true);
+
             //Usa dotwwen para para o tempo seguindo uma duração e Ease
             yield return DOTween.To(
                 () => Time.timeScale,

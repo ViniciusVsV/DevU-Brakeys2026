@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a4371777ba146f44aaabc05973d3325, type: 3}
   m_Name: AudioData
   m_EditorClassIdentifier: Assembly-CSharp::AudioSystem.AudioData
-  menuMusic: {fileID: 0}
-  gameMusic: {fileID: 0}
+  fadeInDuration: 2
+  fadeInEase: 1
+  fadeOutDuration: 1
+  fadeOutEase: 1

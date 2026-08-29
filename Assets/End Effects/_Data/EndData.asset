@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6936fcd7a3d57444aaa24bf3a0132a2e, type: 3}
   m_Name: EndData
   m_EditorClassIdentifier: Assembly-CSharp::EndEffects.EndData
-  timeSlowDuration: 1.5
+  timeSlowDuration: 1
   timeSlowEase: 6
   sectionFocusDuration: 2
+  defeatSFX: {fileID: 8300000, guid: 3115afc4de754e64eb2282aac3c4bebd, type: 3}

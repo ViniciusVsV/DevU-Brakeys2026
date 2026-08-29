@@ -9,5 +9,6 @@ namespace EndEffects
         public float timeSlowDuration;
         public Ease timeSlowEase;
         public float sectionFocusDuration;
+        public AudioClip defeatSFX;
     }
 }

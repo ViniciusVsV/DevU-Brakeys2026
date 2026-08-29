@@ -1,12 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MenU : MonoBehaviour
 {
     [SerializeField] private GameObject PainelMainMenU;
     [SerializeField] private GameObject PainelOptions;
+    [SerializeField] private AudioClip menuMusic;
+
+    public static event Action<AudioClip, AudioSource> OnMenuMusicPlay;
+
+    private void Start()
+    {
+        OnMenuMusicPlay?.Invoke(menuMusic, null);
+    }
 
     public void LoadScenes(string Rscene)
     {
@@ -28,7 +34,3 @@ public class MenU : MonoBehaviour
         Application.Quit();
     }
 }
-
-//Eu sei exatamente oque está pensando sobre minha maneira de identar
-//And... i dont care
-//You are you and i'm me. 

@@ -9,6 +9,8 @@ namespace Sections
     public class SectionUI : MonoBehaviour
     {
         [SerializeField] private SectionData sectionData;
+        [SerializeField] private AudioController audioController;
+
         public static event Action<float> OnTransitionDurationChange;
 
         [Header("Sections")]
@@ -63,6 +65,8 @@ namespace Sections
 
         public void ToggleRules()
         {
+            audioController.PlayRulesButtonSFX();
+
             if (!showingRules)
                 uiAnimator.SetTrigger("Show Rules");
             else

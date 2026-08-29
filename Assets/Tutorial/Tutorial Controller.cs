@@ -29,10 +29,13 @@ namespace Tutorial
 
         public bool dialogueFinished;
 
+        public static event Action<bool> OnTutorialStart;
         public static event Action<string> OnTutorialFinish;
 
         private void Start()
         {
+            OnTutorialStart?.Invoke(true);
+
             tutorialGuy = Instantiate(tutorialGuyPrefab, tutorialGuySpawnPoint.position, Quaternion.identity);
 
             tutorialGuyDialogue = tutorialGuy.GetComponentInChildren<DialogueObject>();

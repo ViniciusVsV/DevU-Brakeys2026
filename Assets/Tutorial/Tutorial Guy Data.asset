@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8eb9606073f8dc84c806caca3a356df3, type: 3}
-  m_Name: PersonData
+  m_Name: Tutorial Guy Data
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
-  initialDelay: 0
-  initialSpawnCooldown: 3
-  timeToReachMaxDificulty: 1
+  initialDelay: 5
+  initialSpawnCooldown: 20
+  timeToReachMaxDificulty: 240
   finalSpawnCooldown: 3
   dificultyCurve:
     serializedVersion: 2
@@ -66,12 +66,7 @@ MonoBehaviour:
   - You made a mistake!
   - Ouch...
   possibleSprites:
-  - {fileID: -6301729747549221970, guid: 53a5381f042dc06449f73659c0e488f5, type: 3}
-  - {fileID: -7496307851198318875, guid: 9dfd2e281ea062041bc10e5a7f233889, type: 3}
-  - {fileID: 1232779207558332534, guid: 7ad4a2317dd15d246a50cba7b304df97, type: 3}
   - {fileID: -6295748747876208728, guid: b38ad3f2593655b4e81d9f921297fe31, type: 3}
-  - {fileID: 5738452619909991832, guid: 0f9a9c7eb9cbaa240a88c385df143463, type: 3}
-  - {fileID: -4110364812310982907, guid: 92d2c75225d50804a917208016894f2e, type: 3}
   drugChance: 0.25
   invalidPassportProbability: 0.2
   possibleNames:

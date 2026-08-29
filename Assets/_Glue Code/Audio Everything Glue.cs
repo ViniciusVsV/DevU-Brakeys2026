@@ -12,6 +12,13 @@ public class AudioEverythingGlue : MonoBehaviour
         Minigames.AudioController.OnContinuousSFXPlay += PlayContinuousSFX;
         Minigames.AudioController.OnContinuousSFXStop += StopContinuousSFX;
         DialogueSystem.TextEffects.OnSoundPlay += PlaySFX;
+
+        Tutorial.TutorialController.OnTutorialStart += FadeMusic;
+        EndEffects.DefeatEffects.OnDefeatEffectsStart += FadeMusic;
+        EndEffects.DefeatEffects.OnGameStart += FadeMusic;
+        EndEffects.DefeatEffects.OnSoundPlay += PlaySFX;
+
+        MenU.OnMenuMusicPlay += PlayMusic;
     }
     private void OnDisable()
     {
@@ -21,6 +28,18 @@ public class AudioEverythingGlue : MonoBehaviour
         Minigames.AudioController.OnContinuousSFXPlay -= PlayContinuousSFX;
         Minigames.AudioController.OnContinuousSFXStop -= StopContinuousSFX;
         DialogueSystem.TextEffects.OnSoundPlay -= PlaySFX;
+
+        Tutorial.TutorialController.OnTutorialStart -= FadeMusic;
+        EndEffects.DefeatEffects.OnDefeatEffectsStart -= FadeMusic;
+        EndEffects.DefeatEffects.OnGameStart -= FadeMusic;
+        EndEffects.DefeatEffects.OnSoundPlay -= PlaySFX;
+
+        MenU.OnMenuMusicPlay -= PlayMusic;
+    }
+
+    public void PlayMusic(AudioClip music, AudioSource audioSource = null)
+    {
+        AudioManager.Instance.PlayMusic(audioSource, music);
     }
 
     public void PlayContinuousSFX(AudioClip sfx, AudioSource audioSource = null)
@@ -36,5 +55,10 @@ public class AudioEverythingGlue : MonoBehaviour
     public void PlaySFX(AudioClip sfx, AudioSource audioSource = null)
     {
         AudioManager.Instance.PlaySFX(audioSource, sfx);
+    }
+
+    public void FadeMusic(bool fadingOut)
+    {
+        AudioEffects.Instance.ApplyMusicFade(fadingOut);
     }
 }
