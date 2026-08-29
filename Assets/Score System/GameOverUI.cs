@@ -1,12 +1,16 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI jokeText;
     [SerializeField] private TextMeshProUGUI highscoreEntryConfirm;
+
     [SerializeField] private TMP_InputField nameInput;
+    [SerializeField] private Button submitButton;
+
     [SerializeField] private HighscoreTable highscoreTable;
 
     private int finalScore;
@@ -49,6 +53,8 @@ public class GameOverUI : MonoBehaviour
     public void SaveScore()
     {
         string playerName = nameInput.text.ToUpper();
+
+        submitButton.interactable = false;
 
         if (playerName.Length != 3)
         {

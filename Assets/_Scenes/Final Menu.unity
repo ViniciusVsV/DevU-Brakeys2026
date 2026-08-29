@@ -2871,6 +2871,7 @@ MonoBehaviour:
   jokeText: {fileID: 1688900049}
   highscoreEntryConfirm: {fileID: 467679332}
   nameInput: {fileID: 533471134}
+  submitButton: {fileID: 1141128285}
   highscoreTable: {fileID: 1579355418}
 --- !u!1 &2033387317
 GameObject:
