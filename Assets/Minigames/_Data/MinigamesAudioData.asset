@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06b5871111bac94c8ad64e02c178b43, type: 3}
+  m_Name: MinigamesAudioData
+  m_EditorClassIdentifier: Assembly-CSharp::Minigames.MinigamesAudioData
+  tvTurnOnSFX: {fileID: 8300000, guid: 09a99045cc7dc8b408a32e6afd40f504, type: 3}
+  tvTurnOffSFX: {fileID: 8300000, guid: 09a99045cc7dc8b408a32e6afd40f504, type: 3}
+  suitcaseFallSFX: {fileID: 0}
+  beltSFX: {fileID: 8300000, guid: 4c7001d28b402a3448c932fb233cd121, type: 3}
+  sniffingSFX: {fileID: 0}
+  finishedSniffingSFX: {fileID: 8300000, guid: af3fbc948c467bc468e01acbb9d452f5, type: 3}

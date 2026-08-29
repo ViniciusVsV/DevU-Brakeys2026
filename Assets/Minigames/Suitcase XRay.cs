@@ -11,6 +11,7 @@ namespace Minigames
         //Aop chegar no raioX, haverá uma spriteMask que irá mostrar o conteúdo dentro da mala
         //Terminar o minigame (aprovar ou recusar a pessoa) irá iniciar uma animação com DOTween da mala diminuindo de tamanho até ser deletada
         [SerializeField] private MinigamesData minigamesData;
+        [SerializeField] private AudioController audioController;
 
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform startPoint;
@@ -48,10 +49,16 @@ namespace Minigames
             spawnSequence?.Kill();
             spawnSequence = DOTween.Sequence();
 
-            spawnSequence.Append(currentSuitcase.transform.DOMoveY(startPoint.position.y, minigamesData.suitacseSpawnDuration).SetEase(minigamesData.suitcaseSpawnEase));
+            spawnSequence.Append(currentSuitcase.transform.DOMoveY(startPoint.position.y, minigamesData.suitacseSpawnDuration)
+                .SetEase(minigamesData.suitcaseSpawnEase)
+                .OnComplete(() => audioController.PlaySuitcaseFallSFX())
+            );
 
             spawnSequence.Append(currentSuitcase.transform.DOMoveX(xRayPoint.position.x, Random.Range(minigamesData.minSuitcaseMoveDuration, minigamesData.maxSuitcaseMoveDuration))
-                .SetEase(Ease.Linear));
+                .SetEase(Ease.Linear)
+                .OnStart(() => audioController.StartBeltSFX())
+                .OnComplete(() => audioController.StopBeltSFX())
+            );
         }
 
         private void DespawnSuitcase(GameObject suitcase)
@@ -63,6 +70,8 @@ namespace Minigames
                 suitcase.transform
                     .DOMoveX(endPoint.position.x, minigamesData.suitcaseEndDuration)
                     .SetEase(minigamesData.suitcaseEndEase)
+                    .OnStart(() => audioController.StartBeltSFX())
+                    .OnComplete(() => audioController.StopBeltSFX())
             );
 
             // Faz a mala cair para baixo

@@ -11,6 +11,7 @@ namespace Minigames
         //Atualmente, quando o sprite é amarelo ele está parado, quando é azul ele está cheirando, quando é verde o sujeito n tem droga e quando está vermelho tem droga
 
         [SerializeField] private MinigamesData minigamesData;
+        [SerializeField] private AudioController audioController;
 
         [SerializeField] private SpriteRenderer sr;
 
@@ -35,12 +36,15 @@ namespace Minigames
             if (coroutine != null)
                 StopCoroutine(coroutine);
 
+            audioController.StopSniffingSFX();
             sr.color = Color.yellow;
         }
 
         private IEnumerator Sniff(PersonBehaviour person)
         {
             //Da play na animação de xeirar
+            audioController.StartSniffingSFX();
+
             sr.color = Color.blue;
 
             yield return new WaitForSeconds(Random.Range(minigamesData.minSniffingDuration, minigamesData.maxSniffingDuration));
@@ -60,6 +64,10 @@ namespace Minigames
 
                 yield return new WaitForSeconds(Random.Range(minigamesData.minRepeatSniffingDuration, minigamesData.maxRepeatSniffingDuration));
             }
+
+            audioController.StopSniffingSFX();
+
+            audioController.PlayFinishSniffingSFX();
 
             if (person.GetDrugs())
             {

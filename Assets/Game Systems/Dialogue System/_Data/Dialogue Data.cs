@@ -16,4 +16,7 @@ public class DialogueData : ScriptableObject
 
     [Header("TEXT")]
     public float typingDelay;
+    public AudioClip[] typingSFXs;
+
+    public AudioClip GetRandomTypingSFX() { return typingSFXs[Random.Range(0, typingSFXs.Length)]; }
 }

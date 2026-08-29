@@ -10,6 +10,8 @@ namespace DialogueSystem
         [SerializeField] private DialogueData dialogueData;
         [SerializeField] private TextMeshProUGUI text;
 
+        public static event Action<AudioClip, AudioSource> OnSoundPlay;
+
         private Coroutine typeRoutine;
 
         private void Awake()
@@ -33,6 +35,8 @@ namespace DialogueSystem
             for (int i = 0; i <= totalCharacters; i++)
             {
                 text.maxVisibleCharacters = i;
+
+                OnSoundPlay?.Invoke(dialogueData.GetRandomTypingSFX(), null);
 
                 yield return new WaitForSeconds(dialogueData.typingDelay);
             }

@@ -16,6 +16,7 @@ namespace Sections
         [SerializeField] private SectionData sectionData;
 
         [Header("Section Elements")]
+        [SerializeField] private AudioController audioController;
         [SerializeField] private SectionBehaviour nextSection;
         [SerializeField] private Transform waitPoint;
         [SerializeField] private Transform activePoint;
@@ -34,6 +35,7 @@ namespace Sections
         [Header("Section Type")]
         public bool isSpawnSection;
         public bool isEndSection;
+        public bool isCounterSection;
 
         private bool isBusy;
 
@@ -87,6 +89,9 @@ namespace Sections
             //Para o minigame atual
             minigamePlayable?.StopMinigame();
 
+            if (!isSpawnSection)
+                audioController.PlayApprovePersonSFX();
+
             nextSection.ReceivePerson(activePerson);
 
             StartCoroutine(ReorderPeople());
@@ -102,6 +107,8 @@ namespace Sections
 
             PersonBehaviour personCopy = activePerson;
             OnPersonProcessed?.Invoke(personCopy, false);
+
+            audioController.PlayDenyPersonSFX();
 
             activePerson.Die();
             activePerson.Speak(dialoguePoint, true);    //Chama a possível fala de morte da pessoa
@@ -129,14 +136,17 @@ namespace Sections
                 ApprovePerson();
                 yield break;
             }
-
             if (isEndSection)
             {
                 PersonBehaviour personCopy = usedPerson;
                 OnPersonProcessed?.Invoke(personCopy, true);
 
                 usedPerson.Die();
+
+                yield break;
             }
+            if (isCounterSection)
+                audioController.PlayNewPersonSFX();
 
             //Chama o minigame vinculado à seção
             minigamePlayable?.PlayMinigame(usedPerson);

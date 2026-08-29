@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee0ce3116c0e7aa438ce4e18dc48b55b, type: 3}
-  m_Name: DialogueData
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  initialSizeMultiplier: 0.8
-  activationDuration: 0.3
-  activationEase: 18
-  deactivationDuration: 0.15
-  deactivationEase: 1
-  typingDelay: 0.03
-  typingSFXs:
+  m_Script: {fileID: 11500000, guid: 9ac5f618b96ad384593f4ff2f0a7835a, type: 3}
+  m_Name: PersonAudioData
+  m_EditorClassIdentifier: Assembly-CSharp::Person.PersonAudioData
+  dialogueTypingSFXs:
   - {fileID: 8300000, guid: f3320f01b80387e488b6dae09688500c, type: 3}
   - {fileID: 8300000, guid: f19157a3c395d0843abff0c20e8e492e, type: 3}
   - {fileID: 8300000, guid: 84ae9765a023071469e265c33c69d2b5, type: 3}

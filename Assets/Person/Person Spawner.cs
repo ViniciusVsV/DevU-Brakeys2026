@@ -38,10 +38,12 @@ namespace Person
                 PersonBehaviour newPerson = Instantiate(personPrefab, transform.position, Quaternion.identity);
 
                 bool invalidPassport = passportGenerator.GeneratePassport(newPerson);
-                newPerson.isInvalid = invalidPassport;
+                if (invalidPassport)
+                    newPerson.isInvalid = invalidPassport;
 
                 bool invalidSuitcase = suitcaseGenerator.GenerateSuitcase(newPerson);
-                newPerson.isInvalid = invalidSuitcase;
+                if (invalidSuitcase)
+                    newPerson.isInvalid = invalidSuitcase;
 
                 OnPersonSpawn?.Invoke(newPerson);
 
