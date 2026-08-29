@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
   initialDelay: 5
-  initialSpawnCooldown: 20
+  initialSpawnCooldown: 5.2
   timeToReachMaxDificulty: 240
   finalSpawnCooldown: 3
   dificultyCurve:

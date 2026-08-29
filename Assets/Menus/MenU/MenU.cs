@@ -14,6 +14,11 @@ public class MenU : MonoBehaviour
         OnMenuMusicPlay?.Invoke(menuMusic, null);
     }
 
+    public void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void LoadScenes(string Rscene)
     {
         TransitionSystem.TransitionManager.Instance.ExitScene(Rscene);
