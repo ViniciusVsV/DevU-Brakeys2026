@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb9606073f8dc84c806caca3a356df3, type: 3}
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
-  initialDelay: 0
-  initialSpawnCooldown: 3
-  timeToReachMaxDificulty: 1
+  initialDelay: 5
+  initialSpawnCooldown: 20
+  timeToReachMaxDificulty: 240
   finalSpawnCooldown: 3
   dificultyCurve:
     serializedVersion: 2

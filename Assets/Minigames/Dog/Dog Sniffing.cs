@@ -1,6 +1,7 @@
 using System.Collections;
 using Person;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Minigames
 {
@@ -13,14 +14,9 @@ namespace Minigames
         [SerializeField] private MinigamesData minigamesData;
         [SerializeField] private AudioController audioController;
 
-        [SerializeField] private SpriteRenderer sr;
+        [SerializeField] private Animator animator;
 
         private Coroutine coroutine;
-
-        private void Awake()
-        {
-            sr.color = Color.yellow;
-        }
 
         public void PlayMinigame(PersonBehaviour person)
         {
@@ -37,7 +33,7 @@ namespace Minigames
                 StopCoroutine(coroutine);
 
             audioController.StopSniffingSFX();
-            sr.color = Color.yellow;
+            animator.Play("Idle");
         }
 
         private IEnumerator Sniff(PersonBehaviour person)
@@ -45,7 +41,7 @@ namespace Minigames
             //Da play na animação de xeirar
             audioController.StartSniffingSFX();
 
-            sr.color = Color.blue;
+            animator.Play("Sniff");
 
             yield return new WaitForSeconds(Random.Range(minigamesData.minSniffingDuration, minigamesData.maxSniffingDuration));
 
@@ -53,14 +49,14 @@ namespace Minigames
             {
                 //Mostra um sprite aleatório de que detectou droga ou não (trollage kapakapa)
                 if (Random.Range(0f, 1f) < 0.5f)
-                    sr.color = Color.green;
+                    animator.Play("Happy");
                 else
-                    sr.color = Color.red;
+                    animator.Play("Angry");
 
                 yield return new WaitForSeconds(Random.Range(minigamesData.minRepeatSniffingDelay, minigamesData.maxRepeatSniffingDelay));
 
                 //Volta a animação de xeirar
-                sr.color = Color.blue;
+                animator.Play("Sniff");
 
                 yield return new WaitForSeconds(Random.Range(minigamesData.minRepeatSniffingDuration, minigamesData.maxRepeatSniffingDuration));
             }
@@ -70,15 +66,9 @@ namespace Minigames
             audioController.PlayFinishSniffingSFX();
 
             if (person.GetDrugs())
-            {
-                //Mostra um sprite diferente caso detectou droga
-                sr.color = Color.red;
-            }
+                animator.Play("Angry");
             else
-            {
-                //Não tem droga
-                sr.color = Color.green;
-            }
+                animator.Play("Happy");
 
             coroutine = null;
         }
