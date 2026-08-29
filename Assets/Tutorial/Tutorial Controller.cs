@@ -11,6 +11,8 @@ namespace Tutorial
 {
     public class TutorialController : MonoBehaviour
     {
+        [SerializeField] private AudioClip tutorialMusic;
+
         [SerializeField] private PersonBehaviour tutorialGuyPrefab;
         [SerializeField] private Transform tutorialGuySpawnPoint;
         [SerializeField] private Transform firstSectionActivePoint;
@@ -29,12 +31,14 @@ namespace Tutorial
 
         public bool dialogueFinished;
 
-        public static event Action<bool> OnTutorialStart;
-        public static event Action<string> OnTutorialFinish;
+        public static event Action<AudioClip> OnMusicPlay;
+        public static event Action<bool> OnMusicFade;
+        public static event Action<string> OnSceneExit;
 
         private void Start()
         {
-            OnTutorialStart?.Invoke(true);
+            //Botar para tocar a música do tutorial
+            OnMusicPlay?.Invoke(tutorialMusic);
 
             tutorialGuy = Instantiate(tutorialGuyPrefab, tutorialGuySpawnPoint.position, Quaternion.identity);
 
@@ -91,7 +95,12 @@ namespace Tutorial
 
             yield return new WaitUntil(() => dialogueFinished);
 
-            OnTutorialFinish?.Invoke(gameSceneName);
+            //Dar um fade out na música do tutorial
+            OnMusicFade?.Invoke(true);
+
+            yield return new WaitForSeconds(2f);
+
+            OnSceneExit?.Invoke(gameSceneName);
         }
     }
 }

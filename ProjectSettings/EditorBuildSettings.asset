@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/Game.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/_Scenes/Final Menu.unity
+    path: Assets/_Scenes/Score Scene.unity
     guid: 7b99536699300f54199df1846391c8c6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

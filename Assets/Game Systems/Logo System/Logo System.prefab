@@ -280,7 +280,7 @@ MonoBehaviour:
   logos:
   - {fileID: 763570914065578282}
   - {fileID: 3378817384473538414}
-  nextScene: Main Menu
+  nextScene: Tutorial
 --- !u!1 &7263006289873556056
 GameObject:
   m_ObjectHideFlags: 0

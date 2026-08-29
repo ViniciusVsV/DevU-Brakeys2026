@@ -129,8 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 124447786}
   - component: {fileID: 124447788}
-  - component: {fileID: 124447789}
-  - component: {fileID: 124447790}
   - component: {fileID: 124447791}
   - component: {fileID: 124447792}
   - component: {fileID: 124447793}
@@ -168,32 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575d49fc0400ae9459e6d93faaf81447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenCameraGlue
---- !u!114 &124447789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124447784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94aee94f6965a224aac24e065c4fd952, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PersonSectionGlue
-  spawnSection: {fileID: 0}
---- !u!114 &124447790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124447784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b85c4fa9264e97d4ba32299978f974b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SectionEndGlue
-  endEffects: {fileID: 0}
 --- !u!114 &124447791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,6 +3343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1ef7278a3260148b8bc6ec04905e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial.TutorialController
+  tutorialMusic: {fileID: 8300000, guid: 13ccedf4b68ec4b4fa767313ce143aed, type: 3}
   tutorialGuyPrefab: {fileID: 3128760178514953044, guid: fd34f002759126c43ad2ba8550e6e7cc, type: 3}
   tutorialGuySpawnPoint: {fileID: 693238720}
   firstSectionActivePoint: {fileID: 1941190290}
@@ -3655,14 +3628,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3371708713909090948, guid: 92039ed210b498044b5973b28f987e3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3371708713909090948, guid: 92039ed210b498044b5973b28f987e3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4041121706966585409, guid: 92039ed210b498044b5973b28f987e3f, type: 3}
       propertyPath: m_Name
       value: Dialogue System

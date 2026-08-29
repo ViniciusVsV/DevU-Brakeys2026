@@ -1,11 +1,11 @@
 using System;
-using EndEffects;
+using GameEffects;
 using Unity.Cinemachine;
 using UnityEngine;
 
 public class SectionEndGlue : MonoBehaviour
 {
-    [SerializeField] private DefeatEffects endEffects;
+    [SerializeField] private DefeatEffects defeatEffects;
 
     private void OnEnable()
     {
@@ -20,7 +20,6 @@ public class SectionEndGlue : MonoBehaviour
 
     private void ApplyEndEffects(CinemachineCamera sectionCamera)
     {
-        endEffects.ApplyEffects(sectionCamera);
+        defeatEffects.ApplyEffects(sectionCamera);
     }
-
 }

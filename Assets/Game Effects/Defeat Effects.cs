@@ -4,7 +4,7 @@ using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace EndEffects
+namespace GameEffects
 {
     public class DefeatEffects : MonoBehaviour
     {
@@ -14,20 +14,14 @@ namespace EndEffects
         //Chama a transição para o menu final
         //Desativa a UI
         //Invoca fade out na música
-        [SerializeField] private EndData endData;
+        [SerializeField] private GameData gameData;
         [SerializeField] private string finalSceneName;
 
         private Coroutine coroutine;
 
-        public static event Action<bool> OnGameStart;
-        public static event Action<bool> OnDefeatEffectsStart;
         public static event Action<AudioClip, AudioSource> OnSoundPlay;
-        public static event Action<string> OnDefeatEffectsFinished;
-
-        private void Start()
-        {
-            OnGameStart?.Invoke(false);
-        }
+        public static event Action<bool> OnMusicFade;
+        public static event Action<string> OnSceneExit;
 
         public void ApplyEffects(CinemachineCamera camera)
         {
@@ -39,25 +33,25 @@ namespace EndEffects
 
         private IEnumerator EffectsRoutine(CinemachineCamera camera)
         {
-            OnSoundPlay?.Invoke(endData.defeatSFX, null);
-            OnDefeatEffectsStart?.Invoke(true);
+            OnSoundPlay?.Invoke(gameData.defeatSFX, null);
+            OnMusicFade?.Invoke(true);
 
             //Usa dotwwen para para o tempo seguindo uma duração e Ease
             yield return DOTween.To(
                 () => Time.timeScale,
                 x => Time.timeScale = x,
                 0,
-                endData.timeSlowDuration
+                gameData.timeSlowDuration
             )
-            .SetEase(endData.timeSlowEase)
+            .SetEase(gameData.timeSlowEase)
             .SetUpdate(true)
             .WaitForCompletion();
 
             camera.Priority = 1000000;
 
-            yield return new WaitForSecondsRealtime(endData.sectionFocusDuration);
+            yield return new WaitForSecondsRealtime(gameData.sectionFocusDuration);
 
-            OnDefeatEffectsFinished?.Invoke(finalSceneName);
+            OnSceneExit?.Invoke(finalSceneName);
         }
     }
 }

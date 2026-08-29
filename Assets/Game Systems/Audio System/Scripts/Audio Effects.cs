@@ -16,9 +16,6 @@ namespace AudioSystem
 
         public void ApplyMusicFade(bool fadingOut)
         {
-            Debug.Log("Dando fade na música!");
-            Debug.Log("É fade out? " + fadingOut);
-
             if (fadingOut)
                 musicFade.ApplyFadeOut();
             else

@@ -10,12 +10,14 @@ namespace AudioSystem
 
         public void ApplyFadeIn()
         {
+            Debug.Log("FADE IN!");
             musicSource.DOFade(1f, audioData.fadeInDuration).SetEase(audioData.fadeInEase)
                 .SetUpdate(true);
         }
 
         public void ApplyFadeOut()
         {
+            Debug.Log("FADE OUT!");
             musicSource.DOFade(0f, audioData.fadeOutDuration).SetEase(audioData.fadeOutEase)
                 .SetUpdate(true);
         }

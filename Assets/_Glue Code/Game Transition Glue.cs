@@ -1,7 +1,7 @@
 using TransitionSystem;
 using UnityEngine;
 
-public class EndTransitionGlue : MonoBehaviour
+public class GameTransitionGlue : MonoBehaviour
 {
     private TransitionManager transitionManager;
 
@@ -12,11 +12,11 @@ public class EndTransitionGlue : MonoBehaviour
 
     private void OnEnable()
     {
-        EndEffects.DefeatEffects.OnDefeatEffectsFinished += TransitionToEndScreen;
+        GameEffects.DefeatEffects.OnSceneExit += TransitionToEndScreen;
     }
     private void OnDisable()
     {
-        EndEffects.DefeatEffects.OnDefeatEffectsFinished -= TransitionToEndScreen;
+        GameEffects.DefeatEffects.OnSceneExit -= TransitionToEndScreen;
     }
 
     private void TransitionToEndScreen(string finalSceneName)

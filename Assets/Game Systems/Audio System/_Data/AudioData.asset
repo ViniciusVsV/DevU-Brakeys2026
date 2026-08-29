@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioSystem.AudioData
   fadeInDuration: 2
   fadeInEase: 1
-  fadeOutDuration: 1
+  fadeOutDuration: 2
   fadeOutEase: 1

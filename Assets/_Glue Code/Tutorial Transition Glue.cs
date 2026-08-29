@@ -12,11 +12,11 @@ public class TutorialTransitionGlue : MonoBehaviour
 
     private void OnEnable()
     {
-        Tutorial.TutorialController.OnTutorialFinish += TransitionToGame;
+        Tutorial.TutorialController.OnSceneExit += TransitionToGame;
     }
     private void OnDisable()
     {
-        Tutorial.TutorialController.OnTutorialFinish -= TransitionToGame;
+        Tutorial.TutorialController.OnSceneExit -= TransitionToGame;
     }
 
     private void TransitionToGame(string gameSceneName)

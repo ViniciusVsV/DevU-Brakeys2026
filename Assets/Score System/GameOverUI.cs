@@ -18,7 +18,6 @@ public class GameOverUI : MonoBehaviour
 
     private void Start()
     {
-
         finalScore = Scoring.Instance.score;
         finalJoke = Scoring.Instance.joke;
 

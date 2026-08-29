@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85c4fa9264e97d4ba32299978f974b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SectionEndGlue
-  endEffects: {fileID: 912182765}
+  defeatEffects: {fileID: 912182765}
 --- !u!114 &124447791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,9 +1655,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912182766}
+  - component: {fileID: 912182767}
   - component: {fileID: 912182765}
   m_Layer: 0
-  m_Name: End Effects
+  m_Name: Game Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1675,7 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde2f9acca930c847bfa8f69366e1039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndEffects.DefeatEffects
-  endData: {fileID: 11400000, guid: b80cfdda7707b98498a728ebe2bbbbbb, type: 2}
+  gameData: {fileID: 11400000, guid: b80cfdda7707b98498a728ebe2bbbbbb, type: 2}
   finalSceneName: Final Menu
 --- !u!4 &912182766
 Transform:
@@ -1692,6 +1693,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &912182767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912182764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1be6364205b0a46b806dc29aaf2bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEffects.StartEffects
+  gameData: {fileID: 11400000, guid: b80cfdda7707b98498a728ebe2bbbbbb, type: 2}
 --- !u!1 &912944951
 GameObject:
   m_ObjectHideFlags: 0
