@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7ad4a2317dd15d246a50cba7b304df97
+guid: 0f9a9c7eb9cbaa240a88c385df143463
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1232779207558332534
-    second: sobretudo_1_0
+      213: 5738452619909991832
+    second: tracer_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sobretudo_1_0
+      name: tracer_1_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 1
-        width: 1115
-        height: 1805
+        x: 364
+        y: 0
+        width: 543
+        height: 1697
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67080016826bb1110800000000000000
-      internalID: 1232779207558332534
+      spriteID: 89d0522114413af40800000000000000
+      internalID: 5738452619909991832
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sobretudo_1_0: 1232779207558332534
+      tracer_1_0: 5738452619909991832
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

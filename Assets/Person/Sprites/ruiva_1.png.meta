@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7ad4a2317dd15d246a50cba7b304df97
+guid: 53a5381f042dc06449f73659c0e488f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1232779207558332534
-    second: sobretudo_1_0
+      213: -6301729747549221970
+    second: ruiva_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sobretudo_1_0
+      name: ruiva_1_0
       rect:
         serializedVersion: 2
-        x: 87
+        x: 173
         y: 1
-        width: 1115
-        height: 1805
+        width: 927
+        height: 1502
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67080016826bb1110800000000000000
-      internalID: 1232779207558332534
+      spriteID: eab01debe22cb88a0800000000000000
+      internalID: -6301729747549221970
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sobretudo_1_0: 1232779207558332534
+      ruiva_1_0: -6301729747549221970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

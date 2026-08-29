@@ -43,18 +43,36 @@ MonoBehaviour:
   movementDuration: 1
   movementEase: 6
   deathMovementDuration: 2
-  possibleSprites:
-  - {fileID: 1232779207558332534, guid: 7ad4a2317dd15d246a50cba7b304df97, type: 3}
-  drugChance: 0.25
-  speakingProbability: 0.3
-  possibleLines:
-  - I'm trustworthy...
-  - Nothing to see here! haha..
-  - Hey! Good morning!
+  introductionSpeakingProbability: 0.3
+  possibleIntrocutionLines:
+  - Hey!
+  - Nothing to see here... haha
+  - I'm trustworthy!
+  - Just let me pass, will you?
+  - Trust me, i'm clean!
+  - Good morning!
   - Hurry it up.
+  - AAAAHHH I'M LATE
+  - I hate this place
   dialogueTypingDelay: 0.03
   dialogueFadeDelay: 1
   dialogueFadeDuration: 2
+  deathSpeakingProbability: 0.5
+  possibleDeathLines:
+  - HEY!
+  - C'mon, look again...
+  - Bruh
+  - I knew it wouldn't work
+  - You made a mistake!
+  - Ouch...
+  possibleSprites:
+  - {fileID: -6301729747549221970, guid: 53a5381f042dc06449f73659c0e488f5, type: 3}
+  - {fileID: -7496307851198318875, guid: 9dfd2e281ea062041bc10e5a7f233889, type: 3}
+  - {fileID: 1232779207558332534, guid: 7ad4a2317dd15d246a50cba7b304df97, type: 3}
+  - {fileID: -6295748747876208728, guid: b38ad3f2593655b4e81d9f921297fe31, type: 3}
+  - {fileID: 5738452619909991832, guid: 0f9a9c7eb9cbaa240a88c385df143463, type: 3}
+  - {fileID: -4110364812310982907, guid: 92d2c75225d50804a917208016894f2e, type: 3}
+  drugChance: 0.25
   invalidPassportProbability: 0.2
   possibleNames:
   - Penis

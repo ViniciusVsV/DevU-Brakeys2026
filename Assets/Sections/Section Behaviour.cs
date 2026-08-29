@@ -96,7 +96,9 @@ namespace Sections
 
             PersonBehaviour personCopy = activePerson;
             OnPersonProcessed?.Invoke(personCopy, false);
+
             activePerson.Die();
+            activePerson.Speak(dialoguePoint, true);    //Chama a possível fala de morte da pessoa
 
             StartCoroutine(ReorderPeople());
         }
@@ -132,7 +134,7 @@ namespace Sections
             //Chama o minigame vinculado à seção
             minigamePlayable?.PlayMinigame(activePerson);
 
-            activePerson.Speak(dialoguePoint);
+            activePerson.Speak(dialoguePoint, false);
         }
 
         private void MovePersonToLine(PersonBehaviour person)
