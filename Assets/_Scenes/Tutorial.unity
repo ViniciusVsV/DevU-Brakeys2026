@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 124447790}
   - component: {fileID: 124447791}
   - component: {fileID: 124447792}
+  - component: {fileID: 124447793}
   m_Layer: 0
   m_Name: Glue Code
   m_TagString: Untagged
@@ -217,6 +218,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9182369c21be6b74b8d42e8ebbf5b0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialTransitionGlue
+--- !u!114 &124447793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124447784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3a40db1293be244813a679faf69d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioEverythingGlue
 --- !u!1 &219667289
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ namespace Person
         //Cada pessoa vai ter uma mala e um passaporte aleatórios das listas
         //Cada pessoa aleatoriamente terá drogas ou não
         [SerializeField] private PersonData personData;
+        [SerializeField] private AudioController audioController;
 
         private SpriteRenderer sr;
         private Sprite sprite;
@@ -106,6 +107,8 @@ namespace Person
             for (int i = 0; i <= totalCharacters; i++)
             {
                 textUI.maxVisibleCharacters = i;
+
+                audioController.PlayTypingSFX();
 
                 yield return new WaitForSeconds(personData.dialogueTypingDelay);
             }

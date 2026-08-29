@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace AudioSystem
 {
@@ -22,40 +23,55 @@ namespace AudioSystem
                 Destroy(gameObject);
         }
 
-        public void PlayMenuMusic()
-        {
-            if (musicSource.clip != audioData.menuMusic)
-            {
-                musicSource.clip = audioData.menuMusic;
-                musicSource.loop = true;
-            }
-        }
-
-        public void PlayGameMusic()
-        {
-            if (musicSource.clip != audioData.gameMusic)
-            {
-                musicSource.clip = audioData.gameMusic;
-                musicSource.loop = true;
-            }
-        }
-
         public void PlayMusic(AudioSource audioSource, AudioClip music)
         {
             AudioSource usedSource;
             usedSource = audioSource ? audioSource : musicSource;
 
+            usedSource.outputAudioMixerGroup = musicSource.outputAudioMixerGroup;
+
             if (usedSource.clip != music)
             {
                 usedSource.clip = music;
                 usedSource.loop = true;
+
+                usedSource.Play();
             }
+        }
+        public void StopMusic(AudioSource audioSource)
+        {
+            AudioSource usedSource;
+            usedSource = audioSource ? audioSource : musicSource;
+
+            usedSource.Stop();
+        }
+
+        public void PlayContinuousSFX(AudioSource audioSource, AudioClip sfx)
+        {
+            AudioSource usedSource;
+            usedSource = audioSource ? audioSource : sfxSource;
+
+            usedSource.outputAudioMixerGroup = sfxSource.outputAudioMixerGroup;
+
+            usedSource.clip = sfx;
+            usedSource.loop = true;
+
+            usedSource.Play();
+        }
+        public void StopContinuousSFX(AudioSource audioSource)
+        {
+            AudioSource usedSource;
+            usedSource = audioSource ? audioSource : sfxSource;
+
+            usedSource.Stop();
         }
 
         public void PlaySFX(AudioSource audioSource, AudioClip sfx)
         {
             AudioSource usedSource;
             usedSource = audioSource ? audioSource : sfxSource;
+
+            usedSource.outputAudioMixerGroup = sfxSource.outputAudioMixerGroup;
 
             usedSource.PlayOneShot(sfx);
         }

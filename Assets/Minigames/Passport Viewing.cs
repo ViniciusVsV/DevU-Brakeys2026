@@ -7,6 +7,7 @@ namespace Minigames
     public class PassportViewing : MonoBehaviour, IPlayable
     {
         [SerializeField] private MinigamesData minigamesData;
+        [SerializeField] private AudioController audioController;
 
         [SerializeField] private Transform carriedPassportStartPoint;
         [SerializeField] private Transform carriedPassportEndPoint;
@@ -35,6 +36,7 @@ namespace Minigames
             carriedPassport.SetActive(true);
 
             //Pisca a televisão com estática por um tempinho e então mostra o passaporte na televisão
+            audioController.PlayTVStatic();
             tvStaticImage.SetActive(true);
 
             Sequence sequence = DOTween.Sequence();
@@ -55,6 +57,8 @@ namespace Minigames
         private void HidePassports()
         {
             carriedPassport.transform.DOKill();
+
+            audioController.PlayTVStatic();
 
             tvStaticImage.SetActive(true);
             referencePassport.SetActive(false);

@@ -43,7 +43,7 @@ MonoBehaviour:
   movementDuration: 1
   movementEase: 6
   deathMovementDuration: 2
-  introductionSpeakingProbability: 0.3
+  introductionSpeakingProbability: 0.4
   possibleIntrocutionLines:
   - Hey!
   - Nothing to see here... haha
@@ -57,7 +57,7 @@ MonoBehaviour:
   dialogueTypingDelay: 0.03
   dialogueFadeDelay: 1
   dialogueFadeDuration: 2
-  deathSpeakingProbability: 0.5
+  deathSpeakingProbability: 0.6
   possibleDeathLines:
   - HEY!
   - C'mon, look again...
