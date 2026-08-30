@@ -874,17 +874,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688900047}
-  m_LocalRotation: {x: -0, y: -0, z: -0.023136016, w: 0.9997324}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.035148703, y: -0.026429698, z: -0.03870541, w: 0.99828255}
+  m_LocalPosition: {x: 0, y: 0, z: 6.7794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1882205926}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.651}
+  m_LocalEulerAnglesHint: {x: -4.142, y: -2.876, z: -4.337}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.6, y: 203.5}
-  m_SizeDelta: {x: 1921.6, y: 178.8632}
+  m_AnchoredPosition: {x: 160.6101, y: -116.170105}
+  m_SizeDelta: {x: 437.1412, y: 289.8099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1688900049
 MonoBehaviour:
@@ -1062,10 +1062,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverUI
   scoreText: {fileID: 2064065927}
   jokeText: {fileID: 1688900049}
-  highscoreEntryConfirm: {fileID: 0}
-  nameInput: {fileID: 0}
-  submitButton: {fileID: 0}
-  highscoreTable: {fileID: 0}
 --- !u!1 &2064065925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,17 +1087,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064065925}
-  m_LocalRotation: {x: -0, y: -0, z: -0.02500781, w: 0.99968725}
+  m_LocalRotation: {x: -0, y: -0, z: -0.03464988, w: 0.99939954}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1882205926}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.971}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51.2, y: 302.8}
-  m_SizeDelta: {x: 1921.6, y: 178.8632}
+  m_AnchoredPosition: {x: 189, y: 270}
+  m_SizeDelta: {x: 426.276, y: 259.4995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064065927
 MonoBehaviour:
