@@ -19,7 +19,8 @@ namespace Sections
         private SectionBehaviour currentSection;
 
         [Header("UI Elements")]
-        [SerializeField] private TextMeshProUGUI rulesText;
+        [SerializeField] private TextMeshProUGUI rules1Text;
+        [SerializeField] private TextMeshProUGUI rules2Text;
         [SerializeField] private TextMeshProUGUI lineCounterText;
         [SerializeField] private Animator uiAnimator;
 
@@ -34,7 +35,12 @@ namespace Sections
             currentSection = accessableSections[0];
 
             currentSection.sectionCamera.Priority = int.MaxValue;
-            rulesText.text = currentSection.sectionRules;
+
+            string firstHalf = currentSection.sectionRulesFirstHalf;
+            string secondHalf = currentSection.sectionRulesSecondHalf;
+
+            rules1Text.text = firstHalf;
+            rules2Text.text = secondHalf;
         }
 
         private void Update()
@@ -65,7 +71,11 @@ namespace Sections
 
             currentSection = accessableSections[sectionIndex];
 
-            rulesText.text = currentSection.sectionRules;
+            string firstHalf = currentSection.sectionRulesFirstHalf;
+            string secondHalf = currentSection.sectionRulesSecondHalf;
+
+            rules1Text.text = firstHalf;
+            rules2Text.text = secondHalf;
         }
 
         public void ToggleRules()

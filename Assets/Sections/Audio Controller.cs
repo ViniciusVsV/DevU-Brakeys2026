@@ -14,6 +14,6 @@ namespace Sections
         public void PlayApprovePersonSFX() { OnSoundPlay?.Invoke(sectionData.approvePersonSFX, null); }
         public void PlayDenyPersonSFX() { OnSoundPlay?.Invoke(sectionData.denyPersonSFX, null); }
         public void PlaySectionsButtonsSFX() { OnSoundPlay?.Invoke(sectionData.sectionsButtonsSFX, null); }
-        public void PlayRulesButtonSFX() { OnSoundPlay?.Invoke(sectionData.rulesButtonSFX, null); }
+        public void PlayRulesButtonSFX() { OnSoundPlay?.Invoke(sectionData.GetRandomRulesButtonSFX(), null); }
     }
 }

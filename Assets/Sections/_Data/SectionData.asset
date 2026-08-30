@@ -20,4 +20,8 @@ MonoBehaviour:
   approvePersonSFX: {fileID: 8300000, guid: ad14fe261bb0ebb458b97d8d877b5fff, type: 3}
   denyPersonSFX: {fileID: 8300000, guid: f258a34c368ea454787e2677ef448e3f, type: 3}
   sectionsButtonsSFX: {fileID: 8300000, guid: cf00197c88304d140bcb11ba09fe807f, type: 3}
-  rulesButtonSFX: {fileID: 0}
+  rulesButtonSFXs:
+  - {fileID: 8300000, guid: 0575a93eb562516489be9c1eebaeba4a, type: 3}
+  - {fileID: 8300000, guid: 11571f9e4d1fc8d459ecfeb6af4f54a1, type: 3}
+  - {fileID: 8300000, guid: 3b0a97171781ee54c8d975ce5441db12, type: 3}
+  - {fileID: 8300000, guid: 68838de21d8c9f84b9f5f19ef2b913d2, type: 3}

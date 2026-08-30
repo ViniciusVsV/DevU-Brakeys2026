@@ -22,7 +22,10 @@ namespace Sections
         [SerializeField] private Transform activePoint;
         [SerializeField] private Transform dialoguePoint;
         public CinemachineCamera sectionCamera;
-        public string sectionRules;
+
+        [Header("Rules")]
+        public string sectionRulesFirstHalf;
+        public string sectionRulesSecondHalf;
 
         [Header("People")]
         private PersonBehaviour activePerson;
