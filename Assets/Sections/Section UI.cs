@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Sections
 {
@@ -23,7 +24,8 @@ namespace Sections
         [SerializeField] private Animator uiAnimator;
 
         [Header("Error Indicators")]
-        [SerializeField] private GameObject[] errorIndicators;
+        [SerializeField] private Image[] errorIndicators;
+        [SerializeField] private Sprite activatedLight;
 
         private bool showingRules;
 
@@ -98,7 +100,7 @@ namespace Sections
             int amount = Mathf.Clamp(3 - currentLives, 0, 3);
 
             for (int i = 0; i < amount; i++)
-                errorIndicators[i].SetActive(true);
+                errorIndicators[i].sprite = activatedLight;
         }
     }
 }

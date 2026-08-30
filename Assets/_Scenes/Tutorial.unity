@@ -1900,6 +1900,7 @@ MonoBehaviour:
   - {fileID: 1071583037}
   - {fileID: 1548616213}
   - {fileID: 818754464}
+  activatedLight: {fileID: 0}
 --- !u!95 &1390266830
 Animator:
   serializedVersion: 7
@@ -3195,6 +3196,14 @@ PrefabInstance:
     - target: {fileID: 2619331798929603998, guid: 92039ed210b498044b5973b28f987e3f, type: 3}
       propertyPath: m_fontSizeBase
       value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619331798929603998, guid: 92039ed210b498044b5973b28f987e3f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619331798929603998, guid: 92039ed210b498044b5973b28f987e3f, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2619331798929603998, guid: 92039ed210b498044b5973b28f987e3f, type: 3}
       propertyPath: m_hasFontAssetChanged
