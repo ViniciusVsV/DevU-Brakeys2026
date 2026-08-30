@@ -188,8 +188,8 @@ Canvas:
   m_GameObject: {fileID: 927781606}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 2058797115}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -920,6 +920,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverUI
   scoreText: {fileID: 2064065927}
   jokeText: {fileID: 1688900049}
+--- !u!20 &2058797115 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8054791517811414485, guid: 21f6b647e1589f642a883e3b98a62169, type: 3}
+  m_PrefabInstance: {fileID: 1267767191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2064065925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1189,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1277286987585266002, guid: b3c5d4aff03608349a089520a0efac9d, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 927781609}
     - target: {fileID: 4527807402350137928, guid: b3c5d4aff03608349a089520a0efac9d, type: 3}
       propertyPath: m_Name
       value: Score Screen Effects

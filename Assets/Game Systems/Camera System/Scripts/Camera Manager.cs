@@ -24,6 +24,7 @@ namespace CameraSystem
             cinemachineBrain = mainCamera.GetComponent<CinemachineBrain>();
         }
 
+        public Camera GetCamera() { return mainCamera; }
         public Transform GetCameraTransform() { return mainCamera.transform; }
         public void SetBlendTime(float time) { cinemachineBrain.DefaultBlend.Time = time; }
     }

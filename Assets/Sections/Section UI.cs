@@ -14,6 +14,9 @@ namespace Sections
 
         public static event Action<float> OnTransitionDurationChange;
 
+        [Header("Canvas")]
+        [SerializeField] private Canvas canvas;
+
         [Header("Sections")]
         [SerializeField] private List<SectionBehaviour> accessableSections = new();
         private SectionBehaviour currentSection;
@@ -32,6 +35,9 @@ namespace Sections
 
         private void Start()
         {
+            //Atribui render Caemra do canvas
+            canvas.worldCamera = CameraSystem.CameraManager.Instance.GetCamera();
+
             currentSection = accessableSections[0];
 
             currentSection.sectionCamera.Priority = int.MaxValue;

@@ -956,7 +956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -43.2}
+  m_AnchoredPosition: {x: 50, y: -43.199997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &404101552
@@ -1206,7 +1206,7 @@ Canvas:
   m_GameObject: {fileID: 641150731}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 1809243730}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1218,7 +1218,7 @@ Canvas:
   m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1528870757
   m_SortingOrder: -20000
   m_TargetDisplay: 0
 --- !u!224 &641150735
@@ -1264,6 +1264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SectionSystem.SectionUI
   sectionData: {fileID: 11400000, guid: 5ec88329f22f7a84e897702cc0c8f04d, type: 2}
   audioController: {fileID: 641150738}
+  canvas: {fileID: 641150734}
   accessableSections:
   - {fileID: 1826672034}
   - {fileID: 1771162721}

@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Ink.Runtime;
-using TMPro;
 using UnityEngine;
 
 namespace DialogueSystem
@@ -13,6 +11,7 @@ namespace DialogueSystem
 
         [SerializeField] private PanelEffects panelEffects;
         [SerializeField] private TextEffects textEffects;
+        [SerializeField] private Canvas canvas;
 
         [Header("Booleans")]
         private bool isActive;
@@ -33,6 +32,11 @@ namespace DialogueSystem
             }
             else
                 Destroy(gameObject);
+        }
+
+        private void Start()
+        {
+            canvas.worldCamera = CameraSystem.CameraManager.Instance.GetCamera();
         }
 
         private void OnEnable()
