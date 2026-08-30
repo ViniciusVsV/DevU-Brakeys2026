@@ -141,7 +141,7 @@ MonoBehaviour:
   nameText: {fileID: 2093961780498738121}
   countryText: {fileID: 3823801727471054754}
   genderText: {fileID: 6330190903168121}
-  spriteRenderer: {fileID: 640288849617909531}
+  spriteRenderer: {fileID: 0}
 --- !u!212 &640288849617909531
 SpriteRenderer:
   serializedVersion: 2
@@ -343,8 +343,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Josivaldo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1490421e8a64a1f499cfe2c128d26ac6, type: 2}
+  m_sharedMaterial: {fileID: -1316561103667000769, guid: 1490421e8a64a1f499cfe2c128d26ac6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -368,10 +368,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.38
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -586,8 +586,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Josivaldo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1490421e8a64a1f499cfe2c128d26ac6, type: 2}
+  m_sharedMaterial: {fileID: -1316561103667000769, guid: 1490421e8a64a1f499cfe2c128d26ac6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -611,10 +611,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.38
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -723,8 +723,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Josivaldo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1490421e8a64a1f499cfe2c128d26ac6, type: 2}
+  m_sharedMaterial: {fileID: -1316561103667000769, guid: 1490421e8a64a1f499cfe2c128d26ac6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -748,10 +748,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.38
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
