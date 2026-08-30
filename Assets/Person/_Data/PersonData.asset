@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PersonData
   m_EditorClassIdentifier: Assembly-CSharp::Person.PersonData
   initialDelay: 3
-  initialSpawnCooldown: 5
+  initialSpawnCooldown: 20
   timeToReachMaxDificulty: 260
-  finalSpawnCooldown: 5
+  finalSpawnCooldown: 3
   dificultyCurve:
     serializedVersion: 2
     m_Curve:
@@ -75,7 +75,7 @@ MonoBehaviour:
   - I'm gonna remember you.
   - I know where you live!
   - Are you kidding me?
-  - LIER!
+  - LIAR!
   - I HATE YOU!
   - I know my rights!
   - It worked the last time.

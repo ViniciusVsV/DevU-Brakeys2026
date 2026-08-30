@@ -71,9 +71,9 @@ namespace Sections
             audioController.PlayRulesButtonSFX();
 
             if (!showingRules)
-                uiAnimator.SetTrigger("Show Rules");
+                uiAnimator.Play("Show Rules");
             else
-                uiAnimator.SetTrigger("Hide Rules");
+                uiAnimator.Play("Hide Rules");
 
             showingRules = !showingRules;
         }
